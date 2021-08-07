@@ -6,17 +6,24 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:23:35 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/07 23:45:38 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/08 00:35:06 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include <stdlib.h>
 
+/*
+ * Swaps the first two elements at the top of the stack
+ * If the stack has no or only one elements (stack == NULL
+ * or stack->prev == NULL) then do nothing
+ */
 void	stack_swap(t_stack **stack)
 {
 	t_stack	*node;
 
+	if (*stack == NULL)
+		return ;
 	node = (*stack)->prev;
 	if (node == NULL)
 		return ;
@@ -25,12 +32,18 @@ void	stack_swap(t_stack **stack)
 	*stack = node;
 }
 
+/*
+ * Shift up all elements of stack the by 1.
+ * The first element becomes the last one.
+ */
 void	stack_rotate(t_stack **stack)
 {
 	t_stack	*it;
 	t_stack	*first;
 
 	if (*stack == NULL)
+		return ;
+	if ((*stack)->prev == NULL)
 		return ;
 	first = *stack;
 	*stack = first->prev;
@@ -47,6 +60,8 @@ void	stack_reverse_rotate(t_stack **stack)
 	t_stack	*next_last;
 
 	if (*stack == NULL)
+		return ;
+	if ((*stack)->prev == NULL)
 		return ;
 	last = *stack;
 	while (last->prev)
