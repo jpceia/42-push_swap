@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   double_stack4.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/07 23:16:55 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/07 23:53:45 by jpceia           ###   ########.fr       */
+/*   Created: 2021/08/07 23:38:58 by jpceia            #+#    #+#             */
+/*   Updated: 2021/08/07 23:39:18 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
 #include "double_stack.h"
-#include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
 
-int	main(int argc, char **argv)
+void	operation_rra(t_stack **a, t_stack **b)
 {
-	int		nb;
-	int		idx;
-	t_stack *a, *b;
+	(void)b;
+	ft_putstr_fd("rra\n", STDOUT_FILENO);
+	stack_reverse_rotate(a);
+}
 
-	double_stack_init(&a, &b);
-	idx = 1;
-	while (idx < argc)
-	{
-		nb = ft_atoi(argv[idx]);
-		stack_push(&a, nb);
-		idx++;
-	}
-	double_stack_print(a, b);
-	/*
-	operation_pb(&a, &b);
-	operation_rb(&a, &b);
-	double_stack_print(a, b);
-	*/
+void	operation_rrb(t_stack **a, t_stack **b)
+{
+	(void)a;
+	ft_putstr_fd("rrb\n", STDOUT_FILENO);
+	stack_reverse_rotate(b);
+}
+
+void	operation_rrr(t_stack **a, t_stack **b)
+{
+	ft_putstr_fd("rrr\n", STDOUT_FILENO);
+	stack_reverse_rotate(a);
+	stack_reverse_rotate(b);
 }
