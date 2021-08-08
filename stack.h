@@ -6,12 +6,12 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:20:04 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/08 01:34:20 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/08 03:39:44 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK
-# define STACK
+#ifndef STACK_H
+# define STACK_H
 
 # include <stddef.h>
 

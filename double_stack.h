@@ -6,12 +6,12 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:50:24 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/08 00:41:08 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/08 03:39:53 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOUBLE_STACK
-# define DOUBLE_STACk
+#ifndef DOUBLE_STACK_H
+# define DOUBLE_STACK_H
 
 # include "libft.h"
 # include "stack.h"
