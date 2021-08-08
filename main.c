@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:16:55 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/07 23:53:45 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/08 01:08:14 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,19 @@ int	main(int argc, char **argv)
 		idx++;
 	}
 	double_stack_print(a, b);
-	/*
 	operation_pb(&a, &b);
+	operation_pb(&a, &b);
+	operation_pb(&a, &b);
+	operation_pb(&a, &b);
+	operation_pb(&a, &b);
+	//operation_pb(&a, &b);
+	//operation_pb(&a, &b);
+	operation_pb(&a, &b);
+	operation_sa(&a, &b);
+	operation_rrr(&a, &b);
+	/*
 	operation_rb(&a, &b);
-	double_stack_print(a, b);
 	*/
+	double_stack_print(a, b);
+	double_stack_free(&a, &b);
 }

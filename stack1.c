@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:22:13 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/07 23:51:10 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/08 01:08:41 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,16 @@ int	stack_top(t_stack *stack)
 	return (stack->value);
 }
 
-void	stack_free(t_stack **stack)
+void	stack_free(t_stack **stack_ref)
 {
-	t_stack	*node;
-	t_stack	*prev_node;
+	t_stack	*holder;
 
-	node = *stack;
-	while (node->prev)
+	if (!stack_ref)
+		return ;
+	while (*stack_ref)
 	{
-		prev_node = node->prev;
-		free(node);
-		node = prev_node;
+		holder = (*stack_ref)->prev;
+		free(*stack_ref);
+		*stack_ref = holder;
 	}
-	free(node);
-	//free(stack);
 }
