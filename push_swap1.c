@@ -3,47 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 04:02:46 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/09 12:49:13 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/12 12:45:14 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack.h"
 #include "libft.h"
+#include "push_swap.h"
 
-
-void	push_swap_exit()
+void	push_swap_error(void)
 {
 	ft_putstr_fd("Error\n", STDERR_FILENO);
 	exit(-1);
-}
-
-/*
- * TODO:
- *  check errors on stack_push
- *  check if input is number
- */
-int	*parse_args(char **args, int N)
-{
-	int	*arr;
-	int	nb;
-	int	idx;
-
-	if (N < 1)
-		return (NULL);
-	arr = malloc(sizeof(*arr) * N);
-	if (!arr)
-		return (NULL);
-	idx = 0;
-	while (idx < N)
-	{
-		nb = ft_atoi(args[idx]);
-		arr[idx] = nb;
-		idx++;
-	}
-	return (arr);
 }
 
 int	*arange(int start, int end)
@@ -94,7 +67,7 @@ int	*int_argsort(int *arr, size_t N)
 
 int	*rankify(int **arr_ref, size_t N)
 {
-	int k;
+	int	k;
 	int	*index;
 
 	index = int_argsort(*arr_ref, N);

@@ -3,20 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 04:02:46 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/09 14:22:06 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/12 12:47:56 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 #include "stack.h"
 #include "libft.h"
 
-int *reverse(int **arr_ref, size_t N)
+int	*reverse(int **arr_ref, size_t N)
 {
-	int k;
-	int holder;
+	int	k;
+	int	holder;
 
 	k = 0;
 	while (k < (int)(N / 2))
@@ -31,11 +32,11 @@ int *reverse(int **arr_ref, size_t N)
 
 int	arr_all_different(int *arr, size_t N)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
-	while (i < (int)(N-1))
+	while (i < (int)(N - 1))
 	{
 		j = i + 1;
 		while (j < (int)N)
@@ -65,7 +66,7 @@ int	stack_is_sorted(t_stack *stack)
 /*
  *check what happens if stack_push fails
  */
-t_stack *stack_push_array(t_stack **stack, int *arr, size_t N)
+t_stack	*stack_push_array(t_stack **stack, int *arr, size_t N)
 {
 	size_t	idx;
 
