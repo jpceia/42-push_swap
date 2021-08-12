@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:20:04 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/09 15:46:23 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/12 11:48:32 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stddef.h>
 
-typedef	struct	s_stack
+typedef struct s_stack
 {
 	int				value;
 	struct s_stack	*prev;
@@ -34,7 +34,7 @@ t_stack	*stack_push(t_stack **stack_ref, int value);
 int		stack_pop(t_stack **stack_ref);
 
 int		stack_at(t_stack *stack, size_t pos);
-int 	stack_argmax(t_stack *stack);
+int		stack_argmax(t_stack *stack);
 int		stack_argmin(t_stack *stack);
 int		stack_max(t_stack *stack);
 int		stack_min(t_stack *stack);
