@@ -3,31 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   lis1.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 15:38:19 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/12 14:38:48 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/12 15:01:42 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
 
-static int	get_ceil_index(int *arr, int *index, int x, int key)
+static int	get_ceil_index(int *arr, int *index, int r, int key)
 {
-	int	y;
+	int	l;
 	int	m;
 
-	y = -1;
-	while (x - y > 1)
+	l = -1;
+	while (r - l > 1)
 	{
-		m = x + (y - x) / 2;
+		m = l + (r - l) / 2;
 		if (arr[index[m]] >= key)
-			y = m;
+			r = m;
 		else
-			x = m;
+			l = m;
 	}
-	return (y);
+	return (r);
 }
 
 static int	*build_LIS(int *arr, int *prev_indices, int start, int **seq)
@@ -43,7 +43,7 @@ static int	*build_LIS(int *arr, int *prev_indices, int start, int **seq)
 		i = prev_indices[i];
 		len++;
 	}
-	*seq = ft_calloc(len, sizeof(int));
+	*seq = malloc(sizeof(int) * len);
 	if (!*seq)
 		return (NULL);
 	i = start;
@@ -87,7 +87,6 @@ static int	longest_increasing_subsequence_aux(
 int	longest_increasing_subsequence(int *arr, int N, int **seq)
 {
 	int	length;
-	int	*success;
 	int	*tail_indices;
 	int	*prev_indices;
 
@@ -102,12 +101,10 @@ int	longest_increasing_subsequence(int *arr, int N, int **seq)
 		prev_indices[length++] = -1;
 	length = longest_increasing_subsequence_aux(
 			arr, N, tail_indices, prev_indices);
-	success = build_LIS(arr, prev_indices, tail_indices[length - 1], seq);
+	build_LIS(arr, prev_indices, tail_indices[length - 1], seq);
 	free(prev_indices);
 	free(tail_indices);
-	if (success)
-		return (length);
-	return (0);
+	return (length);
 }
 
 int	longest_increasing_circular_subsequence(int *arr, int N, int **seq)
@@ -130,7 +127,7 @@ int	longest_increasing_circular_subsequence(int *arr, int N, int **seq)
 		if (len > max_length)
 		{
 			max_length = len;
-			ft_memcpy(*seq, tmp, sizeof(int) * N);
+			ft_memcpy(*seq, tmp, sizeof(int) * len);
 		}
 		free(tmp);
 		i++;
