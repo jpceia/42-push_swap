@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 01:23:29 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/08 01:32:28 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/08 12:13:56 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,20 @@ static void	double_stack_print_line(char *s1, char *s2)
 	ft_putchar_fd('\n', STDOUT_FILENO);
 }
 
-static void	double_stack_print_both(t_stack *a, t_stack *b, size_t N)
+static void	double_stack_print_both(t_double_stack ss, size_t N)
 {
 	char	*s1;
 	char	*s2;
 
 	while (N--)
 	{
-		s1 = ft_itoa(a->value);
-		s2 = ft_itoa(b->value);
+		s1 = ft_itoa(ss.a->value);
+		s2 = ft_itoa(ss.b->value);
 		double_stack_print_line(s1, s2);
 		free(s1);
 		free(s2);
-		a = a->prev;
-		b = b->prev;
+		ss.a = ss.a->prev;
+		ss.b = ss.b->prev;
 	}
 }
 
@@ -69,25 +69,25 @@ static void	double_stack_print_right(t_stack *stack, size_t N)
 	}
 }
 
-void	double_stack_print(t_stack *a, t_stack *b)
+void	double_stack_print(t_double_stack ss)
 {
 	size_t	len_a;
 	size_t	len_b;
 
-	len_a = stack_len(a);
-	len_b = stack_len(b);
+	len_a = stack_len(ss.a);
+	len_b = stack_len(ss.b);
 	if (len_a > len_b)
 	{
-		double_stack_print_left(a, len_a - len_b);
+		double_stack_print_left(ss.a, len_a - len_b);
 		while (--len_a > len_b)
-			a = a->prev;
+			ss.a = ss.a->prev;
 	}
 	else
 	{
-		double_stack_print_right(b, len_b - len_a);
+		double_stack_print_right(ss.b, len_b - len_a);
 		while (--len_b > len_a)
-			b = b->prev;
+			ss.b = ss.b->prev;
 	}
-	double_stack_print_both(a, b, len_a);
+	double_stack_print_both(ss, len_a);
 	ft_putstr_fd("_____  _____\n", STDOUT_FILENO);
 }

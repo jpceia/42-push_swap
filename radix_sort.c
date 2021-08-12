@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 12:35:56 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/09 12:35:57 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/09 12:42:35 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,5 @@ void	radix_sort(t_stack *a)
 			operation_pa(&ss);
 		shift++;
 	}
-	double_stack_print(ss);
 	double_stack_clear(&ss);
 }

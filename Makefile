@@ -4,10 +4,12 @@ LIBFTDIR	= ./libft
 LIBFT		= libft/libft.a
 
 SRCS		= main.c \
-			  stack1.c stack2.c \
+			  stack1.c stack2.c stack3.c \
 			  double_stack_print.c \
 			  double_stack1.c double_stack2.c \
-			  double_stack3.c double_stack4.c
+			  double_stack3.c double_stack4.c \
+			  push_swap1.c push_swap2.c \
+			  greedy_sort.c radix_sort.c lis.c
 OBJS		= $(SRCS:.c=.o)
 
 NAME		= push_swap

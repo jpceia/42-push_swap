@@ -12,14 +12,15 @@
 
 #include "double_stack.h"
 
-void	double_stack_init(t_stack **a_ref, t_stack **b_ref)
+t_double_stack*	double_stack_init(t_double_stack *ss_ref)
 {
-	*a_ref = NULL;
-	*b_ref = NULL;
+	ss_ref->a = NULL;
+	ss_ref->b = NULL;
+	return (ss_ref);
 }
 
-void	double_stack_free(t_stack **a_ref, t_stack **b_ref)
+void	double_stack_clear(t_double_stack *ss_ref)
 {
-	stack_free(a_ref);
-	stack_free(b_ref);
+	stack_clear(ss_ref->a);
+	stack_clear(ss_ref->b);
 }

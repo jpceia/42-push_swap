@@ -6,44 +6,39 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:16:55 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/08 01:08:14 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/09 14:19:56 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include "double_stack.h"
+#include "push_swap.h"
 #include "libft.h"
 #include <stdlib.h>
 #include <stdio.h>
 
 int	main(int argc, char **argv)
 {
-	int		nb;
-	int		idx;
-	t_stack *a, *b;
+	t_stack *stack_a;
+	int *arr;
+	int N;
 
-	double_stack_init(&a, &b);
-	idx = 1;
-	while (idx < argc)
+	N = argc - 1;
+	stack_a = NULL;
+	arr = parse_args(argv + 1, N);
+	if (arr == NULL)
+		push_swap_exit();
+	if (!arr_all_different(arr, N))
+		push_swap_exit();
+	reverse(&arr, N);
+	rankify(&arr, N);
+	if (!stack_push_array(&stack_a, arr, N))
+		push_swap_exit();
+	if (stack_is_sorted(stack_a))
 	{
-		nb = ft_atoi(argv[idx]);
-		stack_push(&a, nb);
-		idx++;
+		stack_clear(stack_a);
+		return (0);
 	}
-	double_stack_print(a, b);
-	operation_pb(&a, &b);
-	operation_pb(&a, &b);
-	operation_pb(&a, &b);
-	operation_pb(&a, &b);
-	operation_pb(&a, &b);
-	//operation_pb(&a, &b);
-	//operation_pb(&a, &b);
-	operation_pb(&a, &b);
-	operation_sa(&a, &b);
-	operation_rrr(&a, &b);
-	/*
-	operation_rb(&a, &b);
-	*/
-	double_stack_print(a, b);
-	double_stack_free(&a, &b);
+	greedy_sort(stack_a);
+	return (0);
 }
