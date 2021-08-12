@@ -8,7 +8,7 @@ SRCS		= main.c \
 			  double_stack_print.c \
 			  double_stack1.c double_stack2.c \
 			  double_stack3.c double_stack4.c \
-			  push_swap1.c push_swap2.c \
+			  push_swap1.c push_swap2.c push_swap_parse.c \
 			  greedy_sort.c radix_sort.c lis.c
 OBJS		= $(SRCS:.c=.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:16:55 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/09 14:19:56 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/12 12:40:57 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,22 @@ int	main(int argc, char **argv)
 	int *arr;
 	int N;
 
-	N = argc - 1;
+	(void)argc;
 	stack_a = NULL;
-	arr = parse_args(argv + 1, N);
+	N = parse_args(argv + 1, &arr);
 	if (arr == NULL)
-		push_swap_exit();
+		push_swap_error();
 	if (!arr_all_different(arr, N))
-		push_swap_exit();
+		push_swap_error();
 	reverse(&arr, N);
 	rankify(&arr, N);
 	if (!stack_push_array(&stack_a, arr, N))
-		push_swap_exit();
+		push_swap_error();
 	if (stack_is_sorted(stack_a))
 	{
 		stack_clear(stack_a);
 		return (0);
 	}
-	greedy_sort(stack_a);
+	radix_sort(stack_a);
 	return (0);
 }
