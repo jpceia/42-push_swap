@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:22:13 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/09 16:54:27 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/12 11:45:38 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	stack_clear(t_stack *stack)
 
 int	*stack_array(t_stack *stack)
 {
-	int i;
-	int *arr;
+	int	i;
+	int	*arr;
 
 	arr = malloc(sizeof(*arr) * stack_len(stack));
 	if (!arr)
