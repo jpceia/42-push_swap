@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:16:55 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/12 12:40:57 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/12 14:45:59 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	main(int argc, char **argv)
 		stack_clear(stack_a);
 		return (0);
 	}
-	radix_sort(stack_a);
+	//radix_sort(stack_a);
+	greedy_sort(stack_a);
 	return (0);
 }
