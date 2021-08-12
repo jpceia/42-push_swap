@@ -12,7 +12,7 @@
 
 #include "double_stack.h"
 
-t_double_stack*	double_stack_init(t_double_stack *ss_ref)
+t_double_stack	*double_stack_init(t_double_stack *ss_ref)
 {
 	ss_ref->a = NULL;
 	ss_ref->b = NULL;
