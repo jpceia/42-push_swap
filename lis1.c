@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lis.c                                              :+:      :+:    :+:   */
+/*   lis1.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 15:38:19 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/10 02:36:13 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/12 14:38:48 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "push_swap.h"
 
 static int	get_ceil_index(int *arr, int *index, int x, int key)
 {
@@ -29,7 +30,7 @@ static int	get_ceil_index(int *arr, int *index, int x, int key)
 	return (y);
 }
 
-static int *build_LIS(int *arr, int *prev_indices, int start, int **seq)
+static int	*build_LIS(int *arr, int *prev_indices, int start, int **seq)
 {
 	int	i;
 	int	j;
@@ -42,7 +43,7 @@ static int *build_LIS(int *arr, int *prev_indices, int start, int **seq)
 		i = prev_indices[i];
 		len++;
 	}
-	*seq = malloc(sizeof(int) * len);
+	*seq = ft_calloc(len, sizeof(int));
 	if (!*seq)
 		return (NULL);
 	i = start;
@@ -55,9 +56,10 @@ static int *build_LIS(int *arr, int *prev_indices, int start, int **seq)
 	return (*seq);
 }
 
-static int	longest_increasing_subsequence_aux(int *arr, int N, int *tail_indices, int *prev_indices)
+static int	longest_increasing_subsequence_aux(
+	int *arr, int N, int *tail_indices, int *prev_indices)
 {
-	int i;
+	int	i;
 	int	pos;
 	int	length;
 
@@ -85,7 +87,7 @@ static int	longest_increasing_subsequence_aux(int *arr, int N, int *tail_indices
 int	longest_increasing_subsequence(int *arr, int N, int **seq)
 {
 	int	length;
-	int *success;
+	int	*success;
 	int	*tail_indices;
 	int	*prev_indices;
 
@@ -98,7 +100,8 @@ int	longest_increasing_subsequence(int *arr, int N, int **seq)
 	length = 0;
 	while (length < N)
 		prev_indices[length++] = -1;
-	length = longest_increasing_subsequence_aux(arr, N, tail_indices, prev_indices);
+	length = longest_increasing_subsequence_aux(
+			arr, N, tail_indices, prev_indices);
 	success = build_LIS(arr, prev_indices, tail_indices[length - 1], seq);
 	free(prev_indices);
 	free(tail_indices);
@@ -107,68 +110,30 @@ int	longest_increasing_subsequence(int *arr, int N, int **seq)
 	return (0);
 }
 
-int	*rotate_array(int **arr, int N, int r)
+int	longest_increasing_circular_subsequence(int *arr, int N, int **seq)
 {
-	int *tmp;
-	int i;
-
-	tmp = malloc(sizeof(int) * N);
-	if (!tmp)
-		return (NULL);
-	i = 0;
-	while (i < N)
-	{
-		tmp[i] = (*arr)[i];
-		i++;
-	}
-	i = 0;
-	while (i < N)
-	{
-		(*arr)[i] = tmp[(i - r) % N];
-		i++;
-	}
-	free(tmp);
-	return (*arr);
-}
-
-int longest_increasing_circular_subsequence(int *arr, int N, int **seq)
-{
-	int *tmp_seq;
-	int i;
-	int len;
-	int max_length;
+	int	*tmp;
+	int	i;
+	int	len;
+	int	max_length;
 
 	i = 0;
 	max_length = 0;
+	*seq = malloc(sizeof(int) * N);
+	if(!*seq)
+		return (0);
 	while (i < N)
 	{
 		rotate_array(&arr, N, i);
-		len = longest_increasing_subsequence(arr, N, &tmp_seq);
+		len = longest_increasing_subsequence(arr, N, &tmp);
 		rotate_array(&arr, N, -i);
 		if (len > max_length)
 		{
-			if (*seq)
-				free(*seq);
 			max_length = len;
-			*seq = tmp_seq;
+			ft_memcpy(*seq, tmp, sizeof(int) * N);
 		}
-		else
-			free(tmp_seq);
+		free(tmp);
 		i++;
 	}
 	return (max_length);
-}
-
-int	int_arr_contains(int *arr, int N, int value)
-{
-	int	i;
-
-	i = 0;
-	while (i < N)
-	{
-		if (arr[i] == value)
-			return (1);
-		i++;
-	}
-	return (0);
 }
