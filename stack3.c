@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   stack3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 08:34:56 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/08 08:59:03 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/12 11:43:25 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-int stack_at(t_stack *stack, size_t pos)
+int	stack_at(t_stack *stack, size_t pos)
 {
 	while (pos--)
 		stack = stack->prev;
@@ -21,9 +21,9 @@ int stack_at(t_stack *stack, size_t pos)
 
 int	stack_argmax(t_stack *stack)
 {
-	int idx;
-	int idx_max;
-	int max;
+	int	idx;
+	int	idx_max;
+	int	max;
 
 	idx = 0;
 	idx_max = 0;
@@ -42,11 +42,11 @@ int	stack_argmax(t_stack *stack)
 	return (idx_max);
 }
 
-int		stack_argmin(t_stack *stack)
+int	stack_argmin(t_stack *stack)
 {
-	int idx;
-	int idx_min;
-	int min;
+	int	idx;
+	int	idx_min;
+	int	min;
 
 	idx = 0;
 	idx_min = 0;
@@ -65,9 +65,9 @@ int		stack_argmin(t_stack *stack)
 	return (idx_min);
 }
 
-int		stack_max(t_stack *stack)
+int	stack_max(t_stack *stack)
 {
-	int max;
+	int	max;
 
 	max = stack->value;
 	stack = stack->prev;
@@ -80,9 +80,9 @@ int		stack_max(t_stack *stack)
 	return (max);
 }
 
-int		stack_min(t_stack *stack)
+int	stack_min(t_stack *stack)
 {
-	int min;
+	int	min;
 
 	min = stack->value;
 	stack = stack->prev;
