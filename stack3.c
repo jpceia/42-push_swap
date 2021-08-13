@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 08:34:56 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/12 11:43:25 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/13 08:09:03 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ int	stack_argmax(t_stack *stack)
 	stack = stack->prev;
 	while (stack)
 	{
+		idx++;
 		if (stack->value > max)
 		{
 			max = stack->value;
 			idx_max = idx;
 		}
-		idx++;
 		stack = stack->prev;
 	}
 	return (idx_max);
@@ -54,12 +54,12 @@ int	stack_argmin(t_stack *stack)
 	stack = stack->prev;
 	while (stack)
 	{
-		if (stack->value > min)
+		idx++;
+		if (stack->value < min)
 		{
 			min = stack->value;
 			idx_min = idx;
 		}
-		idx++;
 		stack = stack->prev;
 	}
 	return (idx_min);
@@ -88,7 +88,7 @@ int	stack_min(t_stack *stack)
 	stack = stack->prev;
 	while (stack)
 	{
-		if (stack->value > min)
+		if (stack->value < min)
 			min = stack->value;
 		stack = stack->prev;
 	}
