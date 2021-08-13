@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 05:15:24 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/13 05:17:52 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/13 08:24:13 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ typedef struct s_params {
 	int	len_b;
 	int	pivot;
 	int	pivot_val;
-	int min_steps;
-	int best_path;
-	int new_val;
+	int	min_steps;
+	int	best_path;
+	int	new_val;
 	int	p;
-	int q;
+	int	q;
 }				t_params;
 
 void	greedy_sort(t_stack *stack);
