@@ -15,6 +15,12 @@
 #include "get_next_line.h"
 #include "libft_bonus.h"
 
+void	checker_error(void)
+{
+	ft_putstr_fd("KO/n", STDOUT_FILENO);
+	exit(-1);
+}
+
 void	apply_operations_step(t_double_stack *ss, char *line)
 {
 	if (ft_strcmp(line, "pa") == 0)
@@ -40,7 +46,7 @@ void	apply_operations_step(t_double_stack *ss, char *line)
 	else if (ft_strcmp(line, "rrr") == 0)
 		operation_rrr(ss);
 	else
-		push_swap_error();
+		checker_error();
 }
 
 void	apply_operations(t_stack **a, int fd)
@@ -52,7 +58,6 @@ void	apply_operations(t_stack **a, int fd)
 	ss.a = *a;
 	while (get_next_line(fd, &line))
 		apply_operations_step(&ss, line);
-	*a = ss.a;
 	stack_clear(ss.b);
 }
 
@@ -64,6 +69,7 @@ int	main(int argc, char **argv)
 
 	(void)argc;
 	N = parse_args(argv + 1, &arr);
+	stack_a = NULL;
 	if (arr == NULL)
 		push_swap_error();
 	if (!arr_all_different(arr, N))
