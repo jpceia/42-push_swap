@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 05:02:28 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/12 16:00:50 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/12 18:28:39 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ typedef struct s_params {
 	int	len_b;
 	int	pivot;
 	int	pivot_val;
-	int best_path;
 	int min_steps;
+	int best_path;
+	int new_val;
 	int	p;
 	int q;
 }				t_params;
