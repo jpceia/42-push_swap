@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 05:02:28 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/13 05:16:23 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/13 05:24:19 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int		*int_argsort(int *arr, size_t N);
 int		*rankify(int **arr_ref, size_t N);
 int		*reverse(int **arr_ref, size_t N);
 int		arr_all_different(int *arr, size_t N);
-int		stack_is_sorted(t_stack *stack);
-t_stack	*stack_push_array(t_stack **stack, int *arr, size_t N);
 void	radix_sort(t_stack *stack);
 void	small_sort(t_stack *stack);
 int		longest_increasing_subsequence(int *arr, int N, int **seq);

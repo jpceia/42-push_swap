@@ -4,7 +4,7 @@ LIBFTDIR	= ./libft
 LIBFT		= libft/libft.a
 
 SRCS		= main.c \
-			  stack1.c stack2.c stack3.c \
+			  stack1.c stack2.c stack3.c stack4.c \
 			  double_stack_print.c \
 			  double_stack1.c double_stack2.c \
 			  double_stack3.c double_stack4.c \
