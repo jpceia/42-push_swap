@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 05:14:38 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/13 05:34:22 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/13 08:19:30 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ static void	insert_top_bottom(t_double_stack *ss, t_params *params)
 	params->pivot -= (params->q + 1);
 }
 
-void    apply_greedy_insertion(t_double_stack *ss, t_params *params)
+void	apply_greedy_insertion(t_double_stack *ss, t_params *params)
 {
 	find_best_insertion(*ss, params);
 	if (params->best_path == 0)
