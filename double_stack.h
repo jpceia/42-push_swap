@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   double_stack.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:50:24 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/12 11:51:04 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/13 10:09:13 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,22 @@ void			operation_rr(t_double_stack *ss_ref);
 void			operation_rra(t_double_stack *ss_ref);
 void			operation_rrb(t_double_stack *ss_ref);
 void			operation_rrr(t_double_stack *ss_ref);
+
+
+void			operation_print_pa(t_double_stack *ss_ref);
+void			operation_print_pb(t_double_stack *ss_ref);
+void			operation_print_sa(t_double_stack *ss_ref);
+void			operation_print_sb(t_double_stack *ss_ref);
+void			operation_print_ss(t_double_stack *ss_ref);
+
+void			operation_print_ra(t_double_stack *ss_ref);
+void			operation_print_rb(t_double_stack *ss_ref);
+void			operation_print_rr(t_double_stack *ss_ref);
+
+void			operation_print_rra(t_double_stack *ss_ref);
+void			operation_print_rrb(t_double_stack *ss_ref);
+void			operation_print_rrr(t_double_stack *ss_ref);
+
+
 
 #endif

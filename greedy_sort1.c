@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 12:35:50 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/13 05:08:33 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/13 10:12:50 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ static void	greedy_sort_start(t_double_stack *ss)
 	while (k++ < len_a)
 	{
 		if (int_arr_contains(seq, N, stack_top(ss->a)))
-			operation_ra(ss);
+			operation_print_ra(ss);
 		else
 		{
-			operation_pb(ss);
+			operation_print_pb(ss);
 			if (stack_top(ss->b) < len_a / 2)
-				operation_rb(ss);
+				operation_print_rb(ss);
 		}
 	}
 	free(seq);
@@ -67,7 +67,7 @@ static void	greedy_sort_core(t_double_stack *ss)
 	while (ss->b)
 	{
 		greedy_sort_insertion_step(ss, &params);
-		operation_pa(ss);
+		operation_print_pa(ss);
 		params.len_a++;
 		params.len_b--;
 	}
@@ -83,12 +83,12 @@ static void	greedy_sort_finalize(t_double_stack *ss)
 	if (pivot < len / 2)
 	{
 		while (pivot-- > 0)
-			operation_rra(ss);
+			operation_print_rra(ss);
 	}
 	else
 	{
 		while (len > pivot++)
-			operation_ra(ss);
+			operation_print_ra(ss);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:27:59 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/09 19:35:41 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/13 10:54:02 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	operation_pa(t_double_stack *ss_ref)
 {
 	t_stack	*node;
 
-	ft_putstr_fd("pa\n", STDOUT_FILENO);
 	node = ss_ref->b;
 	if (node == NULL)
 		return ;
@@ -41,7 +40,6 @@ void	operation_pb(t_double_stack *ss_ref)
 {
 	t_stack	*node;
 
-	ft_putstr_fd("pb\n", STDOUT_FILENO);
 	node = ss_ref->a;
 	if (node == NULL)
 		return ;
@@ -58,7 +56,6 @@ void	operation_pb(t_double_stack *ss_ref)
  */
 void	operation_sa(t_double_stack *ss_ref)
 {
-	ft_putstr_fd("sa\n", STDOUT_FILENO);
 	stack_swap(&ss_ref->a);
 }
 
@@ -70,7 +67,6 @@ void	operation_sa(t_double_stack *ss_ref)
  */
 void	operation_sb(t_double_stack *ss_ref)
 {
-	ft_putstr_fd("sb\n", STDOUT_FILENO);
 	stack_swap(&ss_ref->b);
 }
 
@@ -79,7 +75,6 @@ void	operation_sb(t_double_stack *ss_ref)
  */
 void	operation_ss(t_double_stack *ss_ref)
 {
-	ft_putstr_fd("ss\n", STDOUT_FILENO);
 	stack_swap(&ss_ref->a);
 	stack_swap(&ss_ref->b);
 }
