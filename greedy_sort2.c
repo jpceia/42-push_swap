@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 04:59:07 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/13 05:17:41 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/13 05:49:47 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,12 @@ static int	get_position(t_stack *stack, int val, int pivot)
 
 	len = stack_len(stack);
 	k = 0;
-	while (k++ < len)
+	while (k < len)
 	{
 		i = (pivot + k) % len;
 		if (val > stack_at(stack, len - i - 1))
 			return ((i - 1) % len);
+        k++;
 	}
 	return ((pivot - 1) % len);
 }
