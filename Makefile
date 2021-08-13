@@ -11,7 +11,16 @@ SRCS		= main.c \
 			  push_swap1.c push_swap2.c push_swap_parse.c \
 			  greedy_sort1.c greedy_sort2.c greedy_sort3.c \
 			  radix_sort.c lis1.c lis2.c
+
+SRCS_CHECKER= checker.c \
+			  get_next_line.c get_next_line_utils.c \
+			  stack1.c stack2.c stack3.c stack4.c \
+			  double_stack1.c double_stack2.c \
+			  double_stack3.c double_stack4.c \
+			  push_swap1.c push_swap2.c push_swap_parse.c
+
 OBJS		= $(SRCS:.c=.o)
+OBJS_CHECKER= $(SRCS_CHECKER:.c=.o)
 
 NAME		= push_swap
 
@@ -32,9 +41,12 @@ $(LIBFT):
 $(NAME):	$(OBJS) $(LIBFT)
 			$(CC) $(OBJS) $(LIBFT) -o $(NAME)
 
+checker:	$(OBJS_CHECKER) $(LIBFT)
+			$(CC) $(OBJS) $(LIBFT) -o checker
+
 clean:
 			$(MAKE) -C $(LIBFTDIR) clean
-			$(RM) $(OBJS)
+			$(RM) $(OBJS) $(OBJS_CHECKER)
 
 fclean:
 			$(MAKE) -C $(LIBFTDIR) fclean
