@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 01:23:29 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/08 12:13:56 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/13 06:11:40 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,20 @@ void	double_stack_print(t_double_stack ss)
 	if (len_a > len_b)
 	{
 		double_stack_print_left(ss.a, len_a - len_b);
-		while (--len_a > len_b)
+		while (len_a > len_b)
+		{
 			ss.a = ss.a->prev;
+			len_a--;
+		}
 	}
 	else
 	{
 		double_stack_print_right(ss.b, len_b - len_a);
-		while (--len_b > len_a)
+		while (len_b > len_a)
+		{
 			ss.b = ss.b->prev;
+			len_b--;
+		}
 	}
 	double_stack_print_both(ss, len_a);
 	ft_putstr_fd("_____  _____\n", STDOUT_FILENO);
