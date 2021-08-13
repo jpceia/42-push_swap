@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_parse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 12:36:31 by jceia             #+#    #+#             */
-/*   Updated: 2021/08/12 12:43:53 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/13 08:23:34 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include "stack.h"
 #include "libft.h"
 
-static void check_is_valid_integer(char *s)
+static void	check_is_valid_integer(char *s)
 {
-	while(*s)
+	while (*s)
 	{
 		if (!(*s == '-' || *s == '+' || ft_isdigit(*s)))
 			push_swap_error();

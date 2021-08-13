@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 15:38:19 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/12 15:01:42 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/13 08:22:34 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ int	longest_increasing_circular_subsequence(int *arr, int N, int **seq)
 	i = 0;
 	max_length = 0;
 	*seq = malloc(sizeof(int) * N);
-	if(!*seq)
+	if (!*seq)
 		return (0);
 	while (i < N)
 	{

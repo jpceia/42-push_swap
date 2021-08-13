@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:16:55 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/12 16:08:24 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/13 08:23:17 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack *stack_a;
-	int *arr;
-	int N;
+	t_stack	*stack_a;
+	int		*arr;
+	int		N;
 
 	(void)argc;
 	stack_a = NULL;
@@ -39,7 +39,6 @@ int	main(int argc, char **argv)
 		stack_clear(stack_a);
 		return (0);
 	}
-	//radix_sort(stack_a);
 	greedy_sort(stack_a);
 	return (0);
 }
