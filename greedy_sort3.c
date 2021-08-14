@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   greedy_sort3.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 05:14:38 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/13 08:19:30 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/14 14:31:32 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,18 @@ static void	insert_top_top(t_double_stack *ss, t_params *params)
 	if (params->len_a - params->q < params->len_b - params->p)
 	{
 		while (k++ < params->len_a - params->q - 1)
-			operation_rr(ss);
+			operation_print_rr(ss);
 		k = 0;
 		while (k++ < params->len_b - params->len_a - params->p + params->q)
-			operation_rb(ss);
+			operation_print_rb(ss);
 	}
 	else
 	{
 		while (k++ < params->len_b - params->p - 1)
-			operation_rr(ss);
+			operation_print_rr(ss);
 		k = 0;
 		while (k++ < params->len_a - params->len_b - params->q + params->p)
-			operation_ra(ss);
+			operation_print_ra(ss);
 	}
 	params->pivot += params->len_a - params->q - 1;
 }
@@ -45,18 +45,18 @@ static void	insert_bottom_bottom(t_double_stack *ss, t_params *params)
 	if (params->q > params->p)
 	{
 		while (k++ < params->p + 1)
-			operation_rrr(ss);
+			operation_print_rrr(ss);
 		k = 0;
 		while (k++ < params->q - params->p)
-			operation_rra(ss);
+			operation_print_rra(ss);
 	}
 	else
 	{
 		while (k++ < params->q + 1)
-			operation_rrr(ss);
+			operation_print_rrr(ss);
 		k = 0;
 		while (k++ < params->p - params->q)
-			operation_rrb(ss);
+			operation_print_rrb(ss);
 	}
 	params->pivot -= (params->q + 1);
 }
@@ -67,10 +67,10 @@ static void	insert_bottom_top(t_double_stack *ss, t_params *params)
 
 	k = 0;
 	while (k++ < params->p + 1)
-		operation_rrb(ss);
+		operation_print_rrb(ss);
 	k = 0;
 	while (k++ < params->len_a - params->q - 1)
-		operation_ra(ss);
+		operation_print_ra(ss);
 	params->pivot += params->len_a - params->q - 1;
 }
 
@@ -80,10 +80,10 @@ static void	insert_top_bottom(t_double_stack *ss, t_params *params)
 
 	k = 0;
 	while (k++ < params->len_b - params->p - 1)
-		operation_rb(ss);
+		operation_print_rb(ss);
 	k = 0;
 	while (k++ < params->q + 1)
-		operation_rra(ss);
+		operation_print_rra(ss);
 	params->pivot -= (params->q + 1);
 }
 
