@@ -31,7 +31,7 @@ MAKE		= make
 CC			= gcc
 RM			= rm -f
 
-CFLAGS		= -Wall -Wextra -Werror -g
+CFLAGS		= -Wall -Wextra -Werror
 
 all:		$(NAME)
 
@@ -42,10 +42,10 @@ $(LIBFT):
 			$(MAKE) bonus -C $(LIBFTDIR)
 
 $(NAME):	$(OBJS) $(LIBFT)
-			$(CC) $(OBJS) $(LIBFT) -o $(NAME)
+			$(CC) ${CFLAGS} $(OBJS) $(LIBFT) -o $(NAME)
 
 checker:	$(OBJS_CHECKER) $(LIBFT)
-			$(CC) $(OBJS_CHECKER) $(LIBFT) -o checker
+			$(CC) ${CFLAGS} $(OBJS_CHECKER) $(LIBFT) -o checker
 
 clean:
 			$(MAKE) -C $(LIBFTDIR) clean
