@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   greedy_sort1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 12:35:50 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/14 14:56:29 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/14 20:49:58 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,28 @@
 
 static void	greedy_sort_start(t_double_stack *ss)
 {
-	int	*arr;
 	int	*seq;
 	int	k;
 	int	N;
 	int	len_a;
+	int	seq_count;
 
 	len_a = stack_len(ss->a);
-	arr = stack_array(ss->a);
-	N = longest_increasing_circular_subsequence(arr, len_a, &seq);
-	if (N == len_a)
-		return ;
-	free(arr);
+	N = LICS_stack(ss->a, &seq);
 	k = 0;
-	while (k++ < len_a)
+	seq_count = 0;
+	while ((k < len_a) && (N - seq_count != len_a - k))
 	{
+		k++;
 		if (int_arr_contains(seq, N, stack_top(ss->a)))
-			operation_print_ra(ss);
-		else
 		{
-			operation_print_pb(ss);
-			if (stack_top(ss->b) < len_a / 2)
-				operation_print_rb(ss);
+			operation_print_ra(ss);
+			seq_count++;
+			continue ;
 		}
+		operation_print_pb(ss);
+		if ((len_a > 20) && (stack_top(ss->b) < len_a / 2))
+			operation_print_rb(ss);
 	}
 	free(seq);
 }

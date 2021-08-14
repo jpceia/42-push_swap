@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 05:02:28 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/13 05:24:19 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/14 20:39:04 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	radix_sort(t_stack *stack);
 void	small_sort(t_stack *stack);
 int		longest_increasing_subsequence(int *arr, int N, int **seq);
 int		longest_increasing_circular_subsequence(int *arr, int N, int **seq);
+int		LICS_stack(t_stack *stack, int **seq);
 int		int_arr_contains(int *arr, int N, int value);
 int		*rotate_array(int **arr, int N, int r);
 
