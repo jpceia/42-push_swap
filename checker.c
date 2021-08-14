@@ -17,7 +17,7 @@
 
 void	checker_error(void)
 {
-	ft_putstr_fd("KO/n", STDOUT_FILENO);
+	ft_putstr_fd("KO\n", STDOUT_FILENO);
 	exit(-1);
 }
 
