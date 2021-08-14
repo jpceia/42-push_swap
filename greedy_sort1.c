@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   greedy_sort1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 12:35:50 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/13 10:12:50 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/14 14:56:29 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static void	greedy_sort_start(t_double_stack *ss)
 	len_a = stack_len(ss->a);
 	arr = stack_array(ss->a);
 	N = longest_increasing_circular_subsequence(arr, len_a, &seq);
+	if (N == len_a)
+		return ;
 	free(arr);
 	k = 0;
 	while (k++ < len_a)
