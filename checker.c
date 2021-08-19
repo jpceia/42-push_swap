@@ -24,27 +24,27 @@ void	checker_error(void)
 void	apply_operations_step(t_double_stack *ss, char *line)
 {
 	if (ft_strcmp(line, "pa") == 0)
-		operation_pa(ss);
+		operation_pa(ss, false);
 	else if (ft_strcmp(line, "pb") == 0)
-		operation_pb(ss);
+		operation_pb(ss, false);
 	else if (ft_strcmp(line, "sa") == 0)
-		operation_sa(ss);
+		operation_sa(ss, false);
 	else if (ft_strcmp(line, "sb") == 0)
-		operation_sb(ss);
+		operation_sb(ss, false);
 	else if (ft_strcmp(line, "ss") == 0)
-		operation_ss(ss);
+		operation_ss(ss, false);
 	else if (ft_strcmp(line, "ra") == 0)
-		operation_ra(ss);
+		operation_ra(ss, false);
 	else if (ft_strcmp(line, "rb") == 0)
-		operation_rb(ss);
+		operation_rb(ss, false);
 	else if (ft_strcmp(line, "rr") == 0)
-		operation_rr(ss);
+		operation_rr(ss, false);
 	else if (ft_strcmp(line, "rra") == 0)
-		operation_rra(ss);
+		operation_rra(ss, false);
 	else if (ft_strcmp(line, "rrb") == 0)
-		operation_rrb(ss);
+		operation_rrb(ss, false);
 	else if (ft_strcmp(line, "rrr") == 0)
-		operation_rrr(ss);
+		operation_rrr(ss, false);
 	else
 		checker_error();
 }

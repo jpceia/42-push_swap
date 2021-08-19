@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 12:35:56 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/13 10:17:40 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/19 16:38:20 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ void	radix_sort(t_stack *a)
 		while (k++ < N)
 		{
 			if ((stack_top(ss.a) >> shift) & 1)
-				operation_print_ra(&ss);
+				operation_ra(&ss, true);
 			else
-				operation_print_pb(&ss);
+				operation_pb(&ss, true);
 		}
 		while (ss.b)
-			operation_print_pa(&ss);
+			operation_pa(&ss, true);
 		shift++;
 	}
 	double_stack_clear(&ss);

@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 12:35:50 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/14 20:49:58 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/19 20:31:26 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,24 @@
 static void	greedy_sort_start(t_double_stack *ss)
 {
 	int	*seq;
-	int	k;
 	int	N;
+	int	seq_size;
 	int	len_a;
-	int	seq_count;
 
-	len_a = stack_len(ss->a);
-	N = LICS_stack(ss->a, &seq);
-	k = 0;
-	seq_count = 0;
-	while ((k < len_a) && (N - seq_count != len_a - k))
+	N = stack_len(ss->a);
+	len_a = N;
+	seq_size = LICS_stack(ss->a, &seq);
+	while (seq_size < len_a)
 	{
-		k++;
-		if (int_arr_contains(seq, N, stack_top(ss->a)))
+		if (int_arr_contains(seq, seq_size, stack_top(ss->a)))
+			operation_ra(ss, true);
+		else
 		{
-			operation_print_ra(ss);
-			seq_count++;
-			continue ;
+			operation_pb(ss, true);
+			if ((N > 20) && (stack_top(ss->b) < N / 2))
+				operation_rb(ss, true);
+			len_a--;
 		}
-		operation_print_pb(ss);
-		if ((len_a > 20) && (stack_top(ss->b) < len_a / 2))
-			operation_print_rb(ss);
 	}
 	free(seq);
 }
@@ -68,7 +65,7 @@ static void	greedy_sort_core(t_double_stack *ss)
 	while (ss->b)
 	{
 		greedy_sort_insertion_step(ss, &params);
-		operation_print_pa(ss);
+		operation_pa(ss, true);
 		params.len_a++;
 		params.len_b--;
 	}
@@ -84,12 +81,12 @@ static void	greedy_sort_finalize(t_double_stack *ss)
 	if (pivot < len / 2)
 	{
 		while (pivot-- > 0)
-			operation_print_rra(ss);
+			operation_rra(ss, true);
 	}
 	else
 	{
 		while (len > pivot++)
-			operation_print_ra(ss);
+			operation_ra(ss, true);
 	}
 }
 

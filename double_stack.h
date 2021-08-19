@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:50:24 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/13 11:18:49 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/19 16:31:18 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft.h"
 # include "stack.h"
+# include <stdbool.h>
 
 typedef struct s_double_stack
 {
@@ -26,32 +27,18 @@ void			double_stack_print(t_double_stack ss);
 t_double_stack	*double_stack_init(t_double_stack *ss_ref);
 void			double_stack_clear(t_double_stack *ss_ref);
 
-void			operation_pa(t_double_stack *ss_ref);
-void			operation_pb(t_double_stack *ss_ref);
-void			operation_sa(t_double_stack *ss_ref);
-void			operation_sb(t_double_stack *ss_ref);
-void			operation_ss(t_double_stack *ss_ref);
+void			operation_pa(t_double_stack *ss_ref, bool print);
+void			operation_pb(t_double_stack *ss_ref, bool print);
+void			operation_sa(t_double_stack *ss_ref, bool print);
+void			operation_sb(t_double_stack *ss_ref, bool print);
+void			operation_ss(t_double_stack *ss_ref, bool print);
 
-void			operation_ra(t_double_stack *ss_ref);
-void			operation_rb(t_double_stack *ss_ref);
-void			operation_rr(t_double_stack *ss_ref);
+void			operation_ra(t_double_stack *ss_ref, bool print);
+void			operation_rb(t_double_stack *ss_ref, bool print);
+void			operation_rr(t_double_stack *ss_ref, bool print);
 
-void			operation_rra(t_double_stack *ss_ref);
-void			operation_rrb(t_double_stack *ss_ref);
-void			operation_rrr(t_double_stack *ss_ref);
-
-void			operation_print_pa(t_double_stack *ss_ref);
-void			operation_print_pb(t_double_stack *ss_ref);
-void			operation_print_sa(t_double_stack *ss_ref);
-void			operation_print_sb(t_double_stack *ss_ref);
-void			operation_print_ss(t_double_stack *ss_ref);
-
-void			operation_print_ra(t_double_stack *ss_ref);
-void			operation_print_rb(t_double_stack *ss_ref);
-void			operation_print_rr(t_double_stack *ss_ref);
-
-void			operation_print_rra(t_double_stack *ss_ref);
-void			operation_print_rrb(t_double_stack *ss_ref);
-void			operation_print_rrr(t_double_stack *ss_ref);
+void			operation_rra(t_double_stack *ss_ref, bool print);
+void			operation_rrb(t_double_stack *ss_ref, bool print);
+void			operation_rrr(t_double_stack *ss_ref, bool print);
 
 #endif

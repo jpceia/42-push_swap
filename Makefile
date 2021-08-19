@@ -7,8 +7,7 @@ SRCS		= main.c \
 			  stack1.c stack2.c stack3.c stack4.c \
 			  double_stack1.c double_stack2.c \
 			  double_stack3.c double_stack4.c \
-			  double_stack_print1.c double_stack_print2.c \
-			  double_stack_print3.c double_stack_print4.c \
+			  double_stack_print.c \
 			  push_swap1.c push_swap2.c push_swap_parse.c \
 			  greedy_sort1.c greedy_sort2.c greedy_sort3.c \
 			  radix_sort.c lis1.c lis2.c
@@ -18,8 +17,7 @@ SRCS_CHECKER= checker.c \
 			  stack1.c stack2.c stack3.c stack4.c \
 			  double_stack1.c double_stack2.c \
 			  double_stack3.c double_stack4.c \
-			  double_stack_print1.c double_stack_print2.c \
-			  double_stack_print3.c double_stack_print4.c \
+			  double_stack_print.c \
 			  push_swap1.c push_swap2.c push_swap_parse.c
 
 OBJS		= $(SRCS:.c=.o)
