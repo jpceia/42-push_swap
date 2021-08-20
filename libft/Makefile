@@ -52,7 +52,10 @@ BONUS_SRCS	= \
 			ft_lltoa_base_bonus.c \
 			ft_ulltoa_base_bonus.c \
 			ft_contains_bonus.c \
-			ft_strreverse_bonus.c
+			ft_strreverse_bonus.c \
+			ft_mod_bonus.c \
+			ft_intmax_bonus.c \
+			ft_intmin_bonus.c
 
 OBJS		= $(SRCS:.c=.o)
 
@@ -61,7 +64,7 @@ BONUS_OBJS	= $(BONUS_SRCS:.c=.o)
 CC			= gcc
 RM			= rm -f
 
-CFLAGS		= -Wall -Wextra -Werror -I.
+CFLAGS		= -Wall -Wextra -Werror -I. -g
 
 all:		$(NAME)
 

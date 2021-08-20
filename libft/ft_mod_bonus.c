@@ -1,16 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_remainder_bonus.c                               :+:      :+:    :+:   */
+/*   ft_mod_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/14 14:08:21 by jceia             #+#    #+#             */
-/*   Updated: 2021/08/14 14:08:49 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/19 22:18:57 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_remainder(int a, int b)
+int	ft_mod(int a, int b)
 {
-	return (a - (a / b) * b);
+	int r;
+	
+	r = a % b;
+	if (r < 0)
+		return (r + b);
+	return (r);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 06:05:31 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/14 14:09:13 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/20 21:50:27 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@
 # include "libft.h"
 
 int		ft_strcmp(char *s1, char *s2);
-int		ft_remainder(int a, int b);
+int		ft_mod(int a, int b);
+int     ft_intmax(int x, int y);
+int     ft_intmin(int x, int y);
 char	*ft_lltoa(long long nb);
 char	*ft_ulltoa(unsigned long long nb);
 char	*ft_lltoa_base(long long nb, const char *base);
 char	*ft_ulltoa_base(unsigned long long nb, const char *base);
-int		ft_contains(char c, char *s);
+int		ft_contains(char c, char const *s);
 char	*ft_strreverse(char *s);
 
 #endif
