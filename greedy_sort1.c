@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 12:35:50 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/19 20:31:26 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/20 22:19:07 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,13 @@ static void	greedy_sort_start(t_double_stack *ss)
 static void	greedy_sort_insertion_step(t_double_stack *ss, t_params *params)
 {
 	apply_greedy_insertion(ss, params);
-	if (params->new_val > params->pivot_val)
+	if (params->new_val < params->pivot_val)
 	{
-		params->pivot = params->len_a;
+		params->pivot = 0;
 		params->pivot_val = params->new_val;
 	}
 	else
-	{
-		params->pivot %= params->len_a;
-		if (params->pivot < 0)
-			params->pivot += params->len_a;
-	}
+		params->pivot = ft_mod(params->pivot, params->len_a) + 1;
 }
 
 static void	greedy_sort_core(t_double_stack *ss)
@@ -60,8 +56,8 @@ static void	greedy_sort_core(t_double_stack *ss)
 
 	params.len_a = stack_len(ss->a);
 	params.len_b = stack_len(ss->b);
-	params.pivot = params.len_a - stack_argmax(ss->a) - 1;
-	params.pivot_val = stack_max(ss->a);
+	params.pivot = stack_argmin(ss->a);
+	params.pivot_val = stack_min(ss->a);
 	while (ss->b)
 	{
 		greedy_sort_insertion_step(ss, &params);
@@ -77,16 +73,16 @@ static void	greedy_sort_finalize(t_double_stack *ss)
 	int	pivot;
 
 	len = stack_len(ss->a);
-	pivot = len - stack_argmax(ss->a) - 1;
+	pivot = stack_argmin(ss->a);
 	if (pivot < len / 2)
 	{
 		while (pivot-- > 0)
-			operation_rra(ss, true);
+			operation_ra(ss, true);
 	}
 	else
 	{
-		while (len > pivot++)
-			operation_ra(ss, true);
+		while (pivot++ < len)
+			operation_rra(ss, true);
 	}
 }
 

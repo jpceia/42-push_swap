@@ -6,13 +6,14 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 05:02:28 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/14 20:39:04 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/19 21:50:23 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "libft.h"
 # include "stack.h"
 # include "double_stack.h"
 # include "greedy_sort.h"
