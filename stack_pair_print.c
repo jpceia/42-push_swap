@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   double_stack_print1.c                              :+:      :+:    :+:   */
+/*   stack_pair_print1.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "double_stack.h"
+#include "stack_pair.h"
 
-static void	double_stack_print_line(char *s1, char *s2)
+static void	stack_pair_print_line(char *s1, char *s2)
 {
 	size_t	len;
 
@@ -26,7 +26,7 @@ static void	double_stack_print_line(char *s1, char *s2)
 	ft_putchar_fd('\n', STDOUT_FILENO);
 }
 
-static void	double_stack_print_both(t_double_stack ss, size_t N)
+static void	stack_pair_print_both(t_stack_pair ss, size_t N)
 {
 	char	*s1;
 	char	*s2;
@@ -35,7 +35,7 @@ static void	double_stack_print_both(t_double_stack ss, size_t N)
 	{
 		s1 = ft_itoa(ss.a->value);
 		s2 = ft_itoa(ss.b->value);
-		double_stack_print_line(s1, s2);
+		stack_pair_print_line(s1, s2);
 		free(s1);
 		free(s2);
 		ss.a = ss.a->prev;
@@ -43,33 +43,33 @@ static void	double_stack_print_both(t_double_stack ss, size_t N)
 	}
 }
 
-static void	double_stack_print_left(t_stack *stack, size_t N)
+static void	stack_pair_print_left(t_stack *stack, size_t N)
 {
 	char	*s;
 
 	while (N--)
 	{
 		s = ft_itoa(stack->value);
-		double_stack_print_line(s, "");
+		stack_pair_print_line(s, "");
 		free(s);
 		stack = stack->prev;
 	}
 }
 
-static void	double_stack_print_right(t_stack *stack, size_t N)
+static void	stack_pair_print_right(t_stack *stack, size_t N)
 {
 	char	*s;
 
 	while (N--)
 	{
 		s = ft_itoa(stack->value);
-		double_stack_print_line("", s);
+		stack_pair_print_line("", s);
 		free(s);
 		stack = stack->prev;
 	}
 }
 
-void	double_stack_print(t_double_stack ss)
+void	stack_pair_print(t_stack_pair ss)
 {
 	size_t	len_a;
 	size_t	len_b;
@@ -78,7 +78,7 @@ void	double_stack_print(t_double_stack ss)
 	len_b = stack_len(ss.b);
 	if (len_a > len_b)
 	{
-		double_stack_print_left(ss.a, len_a - len_b);
+		stack_pair_print_left(ss.a, len_a - len_b);
 		while (len_a > len_b)
 		{
 			ss.a = ss.a->prev;
@@ -87,13 +87,13 @@ void	double_stack_print(t_double_stack ss)
 	}
 	else
 	{
-		double_stack_print_right(ss.b, len_b - len_a);
+		stack_pair_print_right(ss.b, len_b - len_a);
 		while (len_b > len_a)
 		{
 			ss.b = ss.b->prev;
 			len_b--;
 		}
 	}
-	double_stack_print_both(ss, len_a);
+	stack_pair_print_both(ss, len_a);
 	ft_putstr_fd("_____  _____\n", STDOUT_FILENO);
 }

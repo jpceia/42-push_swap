@@ -6,21 +6,21 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 12:35:56 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/19 16:38:20 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/20 23:34:17 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "double_stack.h"
+#include "stack_pair.h"
 
 void	small_sort(t_stack *a)
 {
-	t_double_stack	ss;
+	t_stack_pair	ss;
 
-	double_stack_init(&ss);
+	stack_pair_init(&ss);
 	ss.a = a;
-	double_stack_print(ss);
-	double_stack_clear(&ss);
+	stack_pair_print(ss);
+	stack_pair_clear(&ss);
 }
 
 size_t	bit_length(unsigned int n)
@@ -41,9 +41,9 @@ void	radix_sort(t_stack *a)
 	size_t			k;
 	size_t			N;
 	size_t			shift;
-	t_double_stack	ss;
+	t_stack_pair	ss;
 
-	double_stack_init(&ss);
+	stack_pair_init(&ss);
 	ss.a = a;
 	N = stack_len(a);
 	shift = 0;
@@ -61,5 +61,5 @@ void	radix_sort(t_stack *a)
 			operation_pa(&ss, true);
 		shift++;
 	}
-	double_stack_clear(&ss);
+	stack_pair_clear(&ss);
 }

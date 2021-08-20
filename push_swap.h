@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 05:02:28 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/19 21:50:23 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/20 23:34:17 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "libft.h"
 # include "stack.h"
-# include "double_stack.h"
+# include "stack_pair.h"
 # include "greedy_sort.h"
 
 void	push_swap_error(void);

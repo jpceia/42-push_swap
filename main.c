@@ -6,12 +6,12 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:16:55 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/13 08:23:17 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/20 23:34:17 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
-#include "double_stack.h"
+#include "stack_pair.h"
 #include "push_swap.h"
 #include "libft.h"
 #include <stdlib.h>

@@ -10,7 +10,7 @@
 /*																			*/
 /* ************************************************************************** */
 
-#include "double_stack.h"
+#include "stack_pair.h"
 #include "push_swap.h"
 #include "get_next_line.h"
 #include "libft_bonus.h"
@@ -21,7 +21,7 @@ void	checker_error(void)
 	exit(-1);
 }
 
-void	apply_operations_step(t_double_stack *ss, char *line)
+void	apply_operations_step(t_stack_pair *ss, char *line)
 {
 	if (ft_strcmp(line, "pa") == 0)
 		operation_pa(ss, false);
@@ -51,10 +51,10 @@ void	apply_operations_step(t_double_stack *ss, char *line)
 
 void	apply_operations(t_stack **a, int fd)
 {
-	t_double_stack	ss;
+	t_stack_pair	ss;
 	char			*line;
 
-	double_stack_init(&ss);
+	stack_pair_init(&ss);
 	ss.a = *a;
 	while (get_next_line(fd, &line))
 		apply_operations_step(&ss, line);

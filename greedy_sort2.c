@@ -6,13 +6,13 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 04:59:07 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/20 22:26:18 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/20 23:34:17 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "push_swap.h"
-#include "double_stack.h"
+#include "stack_pair.h"
 
 static int	get_position(t_stack *stack, int val, int pivot)
 {
@@ -33,7 +33,7 @@ static int	get_position(t_stack *stack, int val, int pivot)
 }
 
 static void	find_best_insertion_step(
-	t_double_stack ss, t_params *params, int i)
+	t_stack_pair ss, t_params *params, int i)
 {
 	int	j;
 	int	k;
@@ -59,7 +59,7 @@ static void	find_best_insertion_step(
 	}
 }
 
-void	find_best_insertion(t_double_stack ss, t_params *params)
+void	find_best_insertion(t_stack_pair ss, t_params *params)
 {
 	int	i;
 

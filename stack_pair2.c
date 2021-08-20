@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   double_stack2.c                                    :+:      :+:    :+:   */
+/*   stack_pair2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "double_stack.h"
+#include "stack_pair.h"
 
 /*
  * push a
@@ -18,7 +18,7 @@
  * take the first element at the top of b and put it at the top of a. Do
  * nothing if b is empty.
  */
-void	operation_pa(t_double_stack *ss_ref, bool print)
+void	operation_pa(t_stack_pair *ss_ref, bool print)
 {
 	t_stack	*node;
 
@@ -38,7 +38,7 @@ void	operation_pa(t_double_stack *ss_ref, bool print)
  * take the first element at the top of a and put it at the top of b. Do
  * nothing if a is empty.
  */
-void	operation_pb(t_double_stack *ss_ref, bool print)
+void	operation_pb(t_stack_pair *ss_ref, bool print)
 {
 	t_stack	*node;
 
@@ -58,7 +58,7 @@ void	operation_pb(t_double_stack *ss_ref, bool print)
  * swap the first 2 elements at the top of stack a. Do nothing if there
  * is only one or no elements).
  */
-void	operation_sa(t_double_stack *ss_ref, bool print)
+void	operation_sa(t_stack_pair *ss_ref, bool print)
 {
 	if (print)
 		ft_putstr_fd("sa\n", STDOUT_FILENO);
@@ -71,7 +71,7 @@ void	operation_sa(t_double_stack *ss_ref, bool print)
  * swap the first 2 elements at the top of stack b. Do nothing if there
  * is only one or no elements).
  */
-void	operation_sb(t_double_stack *ss_ref, bool print)
+void	operation_sb(t_stack_pair *ss_ref, bool print)
 {
 	if (print)
 		ft_putstr_fd("sb\n", STDOUT_FILENO);
@@ -81,7 +81,7 @@ void	operation_sb(t_double_stack *ss_ref, bool print)
 /*
  * swap a and b
  */
-void	operation_ss(t_double_stack *ss_ref, bool print)
+void	operation_ss(t_stack_pair *ss_ref, bool print)
 {
 	if (print)
 		ft_putstr_fd("ss\n", STDOUT_FILENO);

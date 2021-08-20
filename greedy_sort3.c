@@ -6,14 +6,14 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 05:14:38 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/20 22:53:37 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/20 23:34:17 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "greedy_sort.h"
-#include "double_stack.h"
+#include "stack_pair.h"
 
-static void	insert_top_top(t_double_stack *ss, t_params *params)
+static void	insert_top_top(t_stack_pair *ss, t_params *params)
 {
 	int	k;
 	int	m;
@@ -31,7 +31,7 @@ static void	insert_top_top(t_double_stack *ss, t_params *params)
 	params->pivot -= params->q;
 }
 
-static void	insert_bottom_bottom(t_double_stack *ss, t_params *params)
+static void	insert_bottom_bottom(t_stack_pair *ss, t_params *params)
 {
 	int	k;
 	int	m;
@@ -49,7 +49,7 @@ static void	insert_bottom_bottom(t_double_stack *ss, t_params *params)
 	params->pivot += params->len_a - params->q;
 }
 
-static void	insert_bottom_top(t_double_stack *ss, t_params *params)
+static void	insert_bottom_top(t_stack_pair *ss, t_params *params)
 {
 	int	k;
 
@@ -62,7 +62,7 @@ static void	insert_bottom_top(t_double_stack *ss, t_params *params)
 	params->pivot -= params->q;
 }
 
-static void	insert_top_bottom(t_double_stack *ss, t_params *params)
+static void	insert_top_bottom(t_stack_pair *ss, t_params *params)
 {
 	int	k;
 
@@ -75,7 +75,7 @@ static void	insert_top_bottom(t_double_stack *ss, t_params *params)
 	params->pivot += params->len_a - params->q;
 }
 
-void	apply_greedy_insertion(t_double_stack *ss, t_params *params)
+void	apply_greedy_insertion(t_stack_pair *ss, t_params *params)
 {
 	find_best_insertion(*ss, params);
 	if (params->best_path == 0)

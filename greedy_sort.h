@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 05:15:24 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/13 08:24:13 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/20 23:34:17 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GREEDY_SORT_H
 
 # include "stack.h"
-# include "double_stack.h"
+# include "stack_pair.h"
 
 typedef struct s_params {
 	int	len_a;
@@ -29,7 +29,7 @@ typedef struct s_params {
 }				t_params;
 
 void	greedy_sort(t_stack *stack);
-void	apply_greedy_insertion(t_double_stack *ss, t_params *params);
-void	find_best_insertion(t_double_stack ss, t_params *params);
+void	apply_greedy_insertion(t_stack_pair *ss, t_params *params);
+void	find_best_insertion(t_stack_pair ss, t_params *params);
 
 #endif

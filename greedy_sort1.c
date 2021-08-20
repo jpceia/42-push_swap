@@ -6,14 +6,14 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 12:35:50 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/20 22:19:07 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/20 23:34:17 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "double_stack.h"
+#include "stack_pair.h"
 
-static void	greedy_sort_start(t_double_stack *ss)
+static void	greedy_sort_start(t_stack_pair *ss)
 {
 	int	*seq;
 	int	N;
@@ -38,7 +38,7 @@ static void	greedy_sort_start(t_double_stack *ss)
 	free(seq);
 }
 
-static void	greedy_sort_insertion_step(t_double_stack *ss, t_params *params)
+static void	greedy_sort_insertion_step(t_stack_pair *ss, t_params *params)
 {
 	apply_greedy_insertion(ss, params);
 	if (params->new_val < params->pivot_val)
@@ -50,7 +50,7 @@ static void	greedy_sort_insertion_step(t_double_stack *ss, t_params *params)
 		params->pivot = ft_mod(params->pivot, params->len_a) + 1;
 }
 
-static void	greedy_sort_core(t_double_stack *ss)
+static void	greedy_sort_core(t_stack_pair *ss)
 {
 	t_params	params;
 
@@ -67,7 +67,7 @@ static void	greedy_sort_core(t_double_stack *ss)
 	}
 }
 
-static void	greedy_sort_finalize(t_double_stack *ss)
+static void	greedy_sort_finalize(t_stack_pair *ss)
 {
 	int	len;
 	int	pivot;
@@ -88,12 +88,12 @@ static void	greedy_sort_finalize(t_double_stack *ss)
 
 void	greedy_sort(t_stack *a)
 {
-	t_double_stack	ss;
+	t_stack_pair	ss;
 
-	double_stack_init(&ss);
+	stack_pair_init(&ss);
 	ss.a = a;
 	greedy_sort_start(&ss);
 	greedy_sort_core(&ss);
 	greedy_sort_finalize(&ss);
-	double_stack_clear(&ss);
+	stack_pair_clear(&ss);
 }
