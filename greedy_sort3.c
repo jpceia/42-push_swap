@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 05:14:38 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/20 22:00:24 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/20 22:53:37 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static void	insert_top_top(t_double_stack *ss, t_params *params)
 {
 	int	k;
-	int m;
+	int	m;
 
 	m = ft_intmin(params->p, params->q);
 	k = 0;
@@ -34,7 +34,7 @@ static void	insert_top_top(t_double_stack *ss, t_params *params)
 static void	insert_bottom_bottom(t_double_stack *ss, t_params *params)
 {
 	int	k;
-	int m;
+	int	m;
 
 	m = ft_intmin(params->len_a - params->q, params->len_b - params->p);
 	k = 0;

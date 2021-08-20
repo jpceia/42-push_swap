@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 06:05:31 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/20 21:50:27 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/20 22:54:12 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 int		ft_strcmp(char *s1, char *s2);
 int		ft_mod(int a, int b);
-int     ft_intmax(int x, int y);
-int     ft_intmin(int x, int y);
+int		ft_intmax(int x, int y);
+int		ft_intmin(int x, int y);
 char	*ft_lltoa(long long nb);
 char	*ft_ulltoa(unsigned long long nb);
 char	*ft_lltoa_base(long long nb, const char *base);
