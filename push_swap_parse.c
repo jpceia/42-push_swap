@@ -6,16 +6,24 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 12:36:31 by jceia             #+#    #+#             */
-/*   Updated: 2021/08/21 00:11:46 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/21 16:14:04 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "stack.h"
 #include "libft.h"
+#include <limits.h>
 
 static int	check_is_valid_integer(char *s)
 {
+	long	nb;
+
+	if (ft_strlen(s) > ft_strlen(ft_itoa(INT_MIN)))
+		return (0);
+	nb = ft_atol(s);
+	if (nb > (long)(INT_MAX) || nb < (long)(INT_MIN))
+		return (0);
 	while (*s)
 	{
 		if (!(*s == '-' || *s == '+' || ft_isdigit(*s)))
