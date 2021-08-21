@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 04:59:07 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/20 23:34:17 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/21 14:54:24 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ static void	find_best_insertion_step(
 	int	k;
 	int	steps[4];
 
-	j = get_position(ss.a, ss.b->value, params->pivot);
+	j = get_position(ss.b, ss.a->value, params->pivot);
 	steps[0] = ft_intmax(i, j);
-	steps[1] = ft_intmax(params->len_a - j, params->len_b - i);
-	steps[2] = params->len_a - j + i;
-	steps[3] = params->len_b - i + j;
+	steps[1] = ft_intmax(params->len_b - j, params->len_a - i);
+	steps[2] = params->len_b - j + i;
+	steps[3] = params->len_a - i + j;
 	k = 0;
 	while (k < 4)
 	{
@@ -51,7 +51,7 @@ static void	find_best_insertion_step(
 		{
 			params->min_steps = steps[k];
 			params->best_path = k;
-			params->new_val = ss.b->value;
+			params->new_val = ss.a->value;
 			params->p = i;
 			params->q = j;
 		}
@@ -65,10 +65,10 @@ void	find_best_insertion(t_stack_pair ss, t_params *params)
 
 	i = 0;
 	params->min_steps = params->len_a + params->len_b + 1;
-	while (ss.b)
+	while (ss.a)
 	{
 		find_best_insertion_step(ss, params, i);
-		ss.b = ss.b->prev;
+		ss.a = ss.a->prev;
 		i++;
 	}
 }
