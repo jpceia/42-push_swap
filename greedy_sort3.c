@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 05:14:38 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/21 14:35:09 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/21 15:40:00 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,6 @@ static void	insert_bottom_bottom(t_stack_pair *ss, t_params *params)
 	params->pivot += params->len_b - params->q;
 }
 
-static void	insert_bottom_top(t_stack_pair *ss, t_params *params)
-{
-	int	k;
-
-	k = 0;
-	while (k++ < params->len_a - params->p)
-		operation_rra(ss, true);
-	k = 0;
-	while (k++ < params->q)
-		operation_rb(ss, true);
-	params->pivot -= params->q;
-}
-
 static void	insert_top_bottom(t_stack_pair *ss, t_params *params)
 {
 	int	k;
@@ -73,6 +60,19 @@ static void	insert_top_bottom(t_stack_pair *ss, t_params *params)
 	while (k++ < params->len_b - params->q)
 		operation_rrb(ss, true);
 	params->pivot += params->len_b - params->q;
+}
+
+static void	insert_bottom_top(t_stack_pair *ss, t_params *params)
+{
+	int	k;
+
+	k = 0;
+	while (k++ < params->len_a - params->p)
+		operation_rra(ss, true);
+	k = 0;
+	while (k++ < params->q)
+		operation_rb(ss, true);
+	params->pivot -= params->q;
 }
 
 void	apply_greedy_insertion(t_stack_pair *ss, t_params *params)
