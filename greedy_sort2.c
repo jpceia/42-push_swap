@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 04:59:07 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/21 14:54:24 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/21 17:25:13 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,16 @@ void	find_best_insertion(t_stack_pair ss, t_params *params)
 		ss.a = ss.a->prev;
 		i++;
 	}
+}
+
+void	greedy_sort_insertion_step(t_stack_pair *ss, t_params *params)
+{
+	apply_greedy_insertion(ss, params);
+	if (params->new_val < params->pivot_val)
+	{
+		params->pivot = 0;
+		params->pivot_val = params->new_val;
+	}
+	else
+		params->pivot = ft_mod(params->pivot, params->len_b) + 1;
 }

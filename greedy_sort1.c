@@ -6,12 +6,41 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 12:35:50 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/21 14:59:08 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/21 17:42:05 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "stack_pair.h"
+
+static int	try_swap(t_stack_pair *ss, int *seq_size, int **seq)
+{
+	t_stack	*a;
+	int		*trial_seq;
+	int		trial_seq_size;
+	int		swap_b;
+
+	a = stack_copy(ss->a);
+	trial_seq_size = LICS_stack(stack_swap(&a), &trial_seq);
+	stack_clear(a);
+	if (trial_seq_size <= *seq_size)
+	{
+		free(trial_seq);
+		return (0);
+	}
+	free(*seq);
+	*seq = trial_seq;
+	*seq_size = trial_seq_size;
+	swap_b = 0;
+	if (ss->b && ss->b->prev)
+		if (ss->b->prev->value > ss->b->value)
+			swap_b = 1;
+	if (swap_b)
+		operation_ss(ss, true);
+	else
+		operation_sa(ss, true);
+	return (1);
+}
 
 static void	push_all_except_LICS(t_stack_pair *ss)
 {
@@ -23,6 +52,7 @@ static void	push_all_except_LICS(t_stack_pair *ss)
 	N = stack_len(ss->a);
 	len_a = N;
 	seq_size = LICS_stack(ss->a, &seq);
+	try_swap(ss, &seq_size, &seq);
 	while (seq_size < len_a)
 	{
 		if (int_arr_contains(seq, seq_size, stack_top(ss->a)))
@@ -34,20 +64,10 @@ static void	push_all_except_LICS(t_stack_pair *ss)
 				operation_rb(ss, true);
 			len_a--;
 		}
+		if (N <= 20)
+			try_swap(ss, &seq_size, &seq);
 	}
 	free(seq);
-}
-
-static void	greedy_sort_insertion_step(t_stack_pair *ss, t_params *params)
-{
-	apply_greedy_insertion(ss, params);
-	if (params->new_val < params->pivot_val)
-	{
-		params->pivot = 0;
-		params->pivot_val = params->new_val;
-	}
-	else
-		params->pivot = ft_mod(params->pivot, params->len_b) + 1;
 }
 
 static void	greedy_sort_core(t_stack_pair *ss)
@@ -74,7 +94,7 @@ static void	adjust_pivot(t_stack_pair *ss)
 
 	len = stack_len(ss->a);
 	pivot = stack_argmin(ss->a);
-	if (pivot < len / 2)
+	if (pivot <= len / 2)
 	{
 		while (pivot-- > 0)
 			operation_ra(ss, true);

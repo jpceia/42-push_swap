@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 05:15:24 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/20 23:34:17 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/21 17:25:25 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_params {
 
 void	greedy_sort(t_stack *stack);
 void	apply_greedy_insertion(t_stack_pair *ss, t_params *params);
+void	greedy_sort_insertion_step(t_stack_pair *ss, t_params *params);
 void	find_best_insertion(t_stack_pair ss, t_params *params);
 
 #endif
