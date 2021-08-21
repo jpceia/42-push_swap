@@ -29,7 +29,7 @@ void	stack_pair_clear(t_stack_pair *ss_ref)
 t_stack_pair	*stack_pair_reverse(t_stack_pair *ss_ref)
 {
 	t_stack	*holder;
-	
+
 	holder = ss_ref->a;
 	ss_ref->a = ss_ref->b;
 	ss_ref->b = holder;

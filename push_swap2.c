@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 04:02:46 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/13 05:25:05 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/21 00:06:16 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ int	arr_all_different(int *arr, size_t N)
 		while (j < (int)N)
 		{
 			if (arr[i] == arr[j])
+			{
+				free(arr);
 				return (0);
+			}
 			j++;
 		}
 		i++;

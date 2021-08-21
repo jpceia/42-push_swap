@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 12:36:31 by jceia             #+#    #+#             */
-/*   Updated: 2021/08/13 08:23:34 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/21 00:11:46 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 #include "stack.h"
 #include "libft.h"
 
-static void	check_is_valid_integer(char *s)
+static int	check_is_valid_integer(char *s)
 {
 	while (*s)
 	{
 		if (!(*s == '-' || *s == '+' || ft_isdigit(*s)))
-			push_swap_error();
+			return (0);
 		s++;
 	}
+	return (1);
 }
 
 static int	parse_str_arg(char *s, int **arr)
@@ -50,11 +51,6 @@ static int	parse_str_arg(char *s, int **arr)
 	return (N);
 }
 
-/*
- * TODO:
- *  check errors on stack_push
- *  check if input is number
- */
 int	parse_args(char **args, int **arr)
 {
 	int	N;
@@ -75,7 +71,8 @@ int	parse_args(char **args, int **arr)
 	idx = 0;
 	while (idx < N)
 	{
-		check_is_valid_integer(args[idx]);
+		if (!check_is_valid_integer(args[idx]))
+			return (0);
 		nb = ft_atoi(args[idx]);
 		(*arr)[idx] = nb;
 		idx++;
