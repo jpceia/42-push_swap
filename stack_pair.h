@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef stack_pair_H
-# define stack_pair_H
+#ifndef STACK_PAIR_H
+# define STACK_PAIR_H
 
 # include "libft.h"
 # include "stack.h"
@@ -21,8 +21,8 @@ typedef struct s_stack_pair
 {
 	t_stack	*a;
 	t_stack	*b;
-	bool reversed;
-}				t_stack_pair;
+	bool	reversed;
+}	t_stack_pair;
 
 void			stack_pair_print(t_stack_pair ss);
 t_stack_pair	*stack_pair_init(t_stack_pair *ss_ref);
