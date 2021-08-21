@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 21:26:58 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/21 16:01:46 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/21 16:04:28 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
-	int	nb;
-	int	sgn;
+	long	nb;
+	int		sgn;
 
 	nb = 0;
 	while (ft_isspace(*str))

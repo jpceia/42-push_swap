@@ -55,7 +55,9 @@ BONUS_SRCS	= \
 			ft_strreverse_bonus.c \
 			ft_mod_bonus.c \
 			ft_intmax_bonus.c \
-			ft_intmin_bonus.c
+			ft_intmin_bonus.c \
+			ft_isspace_bonus.c \
+			ft_atol_bonus.c
 
 OBJS		= $(SRCS:.c=.o)
 
