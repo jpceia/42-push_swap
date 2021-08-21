@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:23:35 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/08 00:53:47 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/21 17:20:15 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,33 +18,34 @@
  * If the stack has no or only one elements (stack == NULL
  * or stack->prev == NULL) then do nothing
  */
-void	stack_swap(t_stack **stack_ref)
+t_stack	*stack_swap(t_stack **stack_ref)
 {
 	t_stack	*node;
 
 	if (*stack_ref == NULL)
-		return ;
+		return (NULL);
 	node = (*stack_ref)->prev;
 	if (node == NULL)
-		return ;
+		return (*stack_ref);
 	(*stack_ref)->prev = node->prev;
 	node->prev = *stack_ref;
 	*stack_ref = node;
+	return (*stack_ref);
 }
 
 /*
  * Shift up all elements of stack the by 1.
  * The first element becomes the last one.
  */
-void	stack_rotate(t_stack **stack_ref)
+t_stack	*stack_rotate(t_stack **stack_ref)
 {
 	t_stack	*it;
 	t_stack	*first;
 
 	if (*stack_ref == NULL)
-		return ;
+		return (NULL);
 	if ((*stack_ref)->prev == NULL)
-		return ;
+		return (*stack_ref);
 	first = *stack_ref;
 	*stack_ref = first->prev;
 	first->prev = NULL;
@@ -52,17 +53,18 @@ void	stack_rotate(t_stack **stack_ref)
 	while (it->prev)
 		it = it->prev;
 	it->prev = first;
+	return (*stack_ref);
 }
 
-void	stack_reverse_rotate(t_stack **stack_ref)
+t_stack	*stack_reverse_rotate(t_stack **stack_ref)
 {
 	t_stack	*last;
 	t_stack	*next_last;
 
 	if (*stack_ref == NULL)
-		return ;
+		return (NULL);
 	if ((*stack_ref)->prev == NULL)
-		return ;
+		return (*stack_ref);
 	last = *stack_ref;
 	while (last->prev)
 	{
@@ -72,6 +74,7 @@ void	stack_reverse_rotate(t_stack **stack_ref)
 	next_last->prev = NULL;
 	last->prev = *stack_ref;
 	*stack_ref = last;
+	return (*stack_ref);
 }
 
 t_stack	*stack_push(t_stack **stack_ref, int value)
@@ -84,7 +87,7 @@ t_stack	*stack_push(t_stack **stack_ref, int value)
 	node->value = value;
 	node->prev = *stack_ref;
 	*stack_ref = node;
-	return (node);
+	return (*stack_ref);
 }
 
 int	stack_pop(t_stack **stack_ref)

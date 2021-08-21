@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:20:04 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/13 05:24:25 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/21 17:25:45 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int		stack_top(t_stack *stack);
 void	stack_clear(t_stack *stack);
 int		*stack_array(t_stack *stack);
 
-void	stack_swap(t_stack **stack_ref);
-void	stack_rotate(t_stack **stack_ref);
-void	stack_reverse_rotate(t_stack **stack_ref);
+t_stack	*stack_swap(t_stack **stack_ref);
+t_stack	*stack_rotate(t_stack **stack_ref);
+t_stack	*stack_reverse_rotate(t_stack **stack_ref);
 t_stack	*stack_push(t_stack **stack_ref, int value);
 int		stack_pop(t_stack **stack_ref);
 
@@ -41,5 +41,6 @@ int		stack_min(t_stack *stack);
 
 int		stack_is_sorted(t_stack *stack);
 t_stack	*stack_push_array(t_stack **stack, int *arr, size_t N);
+t_stack	*stack_copy(t_stack *stack);
 
 #endif

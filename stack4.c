@@ -6,7 +6,7 @@
 /*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 05:24:34 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/13 05:25:56 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/21 17:14:19 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,18 @@ t_stack	*stack_push_array(t_stack **stack, int *arr, size_t N)
 	}
 	free(arr);
 	return (*stack);
+}
+
+t_stack	*stack_copy(t_stack *stack)
+{
+	t_stack	*copy;
+
+	if (stack == NULL)
+		return (NULL);
+	copy = malloc(sizeof(*copy));
+	if (!copy)
+		return (NULL);
+	copy->value = stack->value;
+	copy->prev = stack_copy(stack->prev);
+	return (copy);
 }
