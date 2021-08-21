@@ -21,11 +21,13 @@ typedef struct s_stack_pair
 {
 	t_stack	*a;
 	t_stack	*b;
+	bool reversed;
 }				t_stack_pair;
 
 void			stack_pair_print(t_stack_pair ss);
 t_stack_pair	*stack_pair_init(t_stack_pair *ss_ref);
 void			stack_pair_clear(t_stack_pair *ss_ref);
+t_stack_pair	*stack_pair_reverse(t_stack_pair *ss_ref);
 
 void			operation_pa(t_stack_pair *ss_ref, bool print);
 void			operation_pb(t_stack_pair *ss_ref, bool print);

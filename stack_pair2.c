@@ -22,6 +22,13 @@ void	operation_pa(t_stack_pair *ss_ref, bool print)
 {
 	t_stack	*node;
 
+	if (ss_ref->reversed)
+	{
+		stack_pair_reverse(ss_ref);
+		operation_pb(ss_ref, print);
+		stack_pair_reverse(ss_ref);
+		return ;
+	}
 	if (print)
 		ft_putstr_fd("pa\n", STDOUT_FILENO);
 	node = ss_ref->b;
@@ -42,6 +49,13 @@ void	operation_pb(t_stack_pair *ss_ref, bool print)
 {
 	t_stack	*node;
 
+	if (ss_ref->reversed)
+	{
+		stack_pair_reverse(ss_ref);
+		operation_pa(ss_ref, print);
+		stack_pair_reverse(ss_ref);
+		return ;
+	}
 	if (print)
 		ft_putstr_fd("pb\n", STDOUT_FILENO);
 	node = ss_ref->a;
@@ -60,6 +74,13 @@ void	operation_pb(t_stack_pair *ss_ref, bool print)
  */
 void	operation_sa(t_stack_pair *ss_ref, bool print)
 {
+	if (ss_ref->reversed)
+	{
+		stack_pair_reverse(ss_ref);
+		operation_sb(ss_ref, print);
+		stack_pair_reverse(ss_ref);
+		return ;
+	}
 	if (print)
 		ft_putstr_fd("sa\n", STDOUT_FILENO);
 	stack_swap(&ss_ref->a);
@@ -73,6 +94,13 @@ void	operation_sa(t_stack_pair *ss_ref, bool print)
  */
 void	operation_sb(t_stack_pair *ss_ref, bool print)
 {
+	if (ss_ref->reversed)
+	{
+		stack_pair_reverse(ss_ref);
+		operation_sa(ss_ref, print);
+		stack_pair_reverse(ss_ref);
+		return ;
+	}
 	if (print)
 		ft_putstr_fd("sb\n", STDOUT_FILENO);
 	stack_swap(&ss_ref->b);

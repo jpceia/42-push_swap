@@ -26,7 +26,7 @@ static void	stack_pair_print_line(char *s1, char *s2)
 	ft_putchar_fd('\n', STDOUT_FILENO);
 }
 
-static void	stack_pair_print_both(t_stack_pair ss, size_t N)
+static void	stack_pair_print_both(t_stack_pair ss, int N)
 {
 	char	*s1;
 	char	*s2;
@@ -43,11 +43,11 @@ static void	stack_pair_print_both(t_stack_pair ss, size_t N)
 	}
 }
 
-static void	stack_pair_print_left(t_stack *stack, size_t N)
+static void	stack_pair_print_left(t_stack *stack, int N)
 {
 	char	*s;
 
-	while (N--)
+	while (N-- > 0)
 	{
 		s = ft_itoa(stack->value);
 		stack_pair_print_line(s, "");
@@ -56,11 +56,11 @@ static void	stack_pair_print_left(t_stack *stack, size_t N)
 	}
 }
 
-static void	stack_pair_print_right(t_stack *stack, size_t N)
+static void	stack_pair_print_right(t_stack *stack, int N)
 {
 	char	*s;
 
-	while (N--)
+	while (N-- > 0)
 	{
 		s = ft_itoa(stack->value);
 		stack_pair_print_line("", s);
@@ -71,29 +71,26 @@ static void	stack_pair_print_right(t_stack *stack, size_t N)
 
 void	stack_pair_print(t_stack_pair ss)
 {
-	size_t	len_a;
-	size_t	len_b;
+	int	k;
+	int	len_a;
+	int	len_b;
 
+	if (ss.reversed)
+	{
+		stack_pair_reverse(&ss);
+		stack_pair_print(ss);
+		return ;
+	}
 	len_a = stack_len(ss.a);
 	len_b = stack_len(ss.b);
-	if (len_a > len_b)
-	{
-		stack_pair_print_left(ss.a, len_a - len_b);
-		while (len_a > len_b)
-		{
-			ss.a = ss.a->prev;
-			len_a--;
-		}
-	}
-	else
-	{
-		stack_pair_print_right(ss.b, len_b - len_a);
-		while (len_b > len_a)
-		{
-			ss.b = ss.b->prev;
-			len_b--;
-		}
-	}
-	stack_pair_print_both(ss, len_a);
+	k = 0;
+	stack_pair_print_left(ss.a, len_a - len_b);
+	while (k++ < len_a - len_b)
+		ss.a = ss.a->prev;
+	stack_pair_print_right(ss.b, len_b - len_a);
+	k = 0;
+	while (k++ < len_b - len_a)
+		ss.b = ss.b->prev;
+	stack_pair_print_both(ss, ft_intmin(len_a, len_b));
 	ft_putstr_fd("_____  _____\n", STDOUT_FILENO);
 }

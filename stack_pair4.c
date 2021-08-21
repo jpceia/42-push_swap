@@ -14,6 +14,13 @@
 
 void	operation_rra(t_stack_pair *ss_ref, bool print)
 {
+	if (ss_ref->reversed)
+	{
+		stack_pair_reverse(ss_ref);
+		operation_rrb(ss_ref, print);
+		stack_pair_reverse(ss_ref);
+		return ;
+	}
 	if (print)
 		ft_putstr_fd("rra\n", STDOUT_FILENO);
 	stack_reverse_rotate(&ss_ref->a);
@@ -21,6 +28,13 @@ void	operation_rra(t_stack_pair *ss_ref, bool print)
 
 void	operation_rrb(t_stack_pair *ss_ref, bool print)
 {
+	if (ss_ref->reversed)
+	{
+		stack_pair_reverse(ss_ref);
+		operation_rra(ss_ref, print);
+		stack_pair_reverse(ss_ref);
+		return ;
+	}
 	if (print)
 		ft_putstr_fd("rrb\n", STDOUT_FILENO);
 	stack_reverse_rotate(&ss_ref->b);
