@@ -1,27 +1,20 @@
 /* ************************************************************************** */
-/*																			*/
-/*														:::	  ::::::::   */
-/*   checker.c										  :+:	  :+:	:+:   */
-/*													+:+ +:+		 +:+	 */
-/*   By: jpceia <jpceia@student.42.fr>			  +#+  +:+	   +#+		*/
-/*												+#+#+#+#+#+   +#+		   */
-/*   Created: 2021/08/13 08:25:24 by jpceia			#+#	#+#			 */
-/*   Updated: 2021/08/13 09:29:12 by jpceia		   ###   ########.fr	   */
-/*																			*/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/08/21 23:20:00 by jpceia            #+#    #+#             */
+/*   Updated: 2021/08/28 00:18:35 by jceia            ###   ########.fr       */
+/*                                                                            */
 /* ************************************************************************** */
 
 #include "stack_pair.h"
 #include "push_swap.h"
-#include "get_next_line.h"
-#include "libft_bonus.h"
+#include "libft.h"
 
-void	checker_error(void)
-{
-	ft_putstr_fd("KO\n", STDOUT_FILENO);
-	exit(-1);
-}
-
-void	apply_operations_step(t_stack_pair *ss, char *line)
+int	apply_operations_step(t_stack_pair *ss, char *line)
 {
 	if (ft_strcmp(line, "pa") == 0)
 		operation_pa(ss, false);
@@ -46,19 +39,34 @@ void	apply_operations_step(t_stack_pair *ss, char *line)
 	else if (ft_strcmp(line, "rrr") == 0)
 		operation_rrr(ss, false);
 	else
-		checker_error();
+		return (-1);
+	return (0);
 }
 
-void	apply_operations(t_stack **a, int fd)
+int	apply_operations(t_stack **a, int fd)
 {
 	t_stack_pair	ss;
+	int				status;
 	char			*line;
 
 	stack_pair_init(&ss);
 	ss.a = *a;
-	while (get_next_line(fd, &line))
-		apply_operations_step(&ss, line);
-	stack_clear(ss.b);
+	status = 0;
+	while (ft_get_next_line(fd, &line) > 0 && status == 0)
+	{
+		status = apply_operations_step(&ss, line);
+		free(line);
+	}
+	free(line);
+	if (status < 0)
+	{
+		stack_pair_clear(&ss);
+		return (-1);
+	}
+	else
+		stack_clear(ss.b);
+	*a = ss.a;
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -68,20 +76,23 @@ int	main(int argc, char **argv)
 	int		N;
 
 	(void)argc;
-	N = parse_args(argv + 1, &arr);
 	stack_a = NULL;
-	if (arr == NULL)
-		push_swap_error();
-	if (!arr_all_different(arr, N))
+	N = parse_args(argv + 1, &arr);
+	if (N <= 0 && arr != NULL)
+		free(arr);
+	if (N == 0)
+		return (EXIT_SUCCESS);
+	if (arr == NULL || N < 0 || !arr_all_different(arr, N))
 		push_swap_error();
 	reverse(&arr, N);
 	rankify(&arr, N);
-	if (!stack_push_array(&stack_a, arr, N))
+	stack_push_array(&stack_a, arr, N);
+	if (apply_operations(&stack_a, STDIN_FILENO) < 0)
 		push_swap_error();
-	apply_operations(&stack_a, STDIN_FILENO);
-	if (stack_is_sorted(stack_a))
-		ft_putstr_fd("OK\n", STDOUT_FILENO);
+	else if (stack_is_sorted(stack_a))
+		ft_putendl("OK");
 	else
-		ft_putstr_fd("KO\n", STDOUT_FILENO);
+		ft_putendl("KO");
 	stack_clear(stack_a);
+	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 04:02:46 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/12 12:45:14 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/28 00:18:05 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	push_swap_error(void)
 {
-	ft_putstr_fd("Error\n", STDERR_FILENO);
-	exit(-1);
+	ft_putendl_fd("Error", STDERR_FILENO);
+	exit(EXIT_FAILURE);
 }
 
 int	*arange(int start, int end)

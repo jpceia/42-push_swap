@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_parse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 12:36:31 by jceia             #+#    #+#             */
-/*   Updated: 2021/08/21 16:58:50 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/27 21:53:08 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ static int	parse_str_arg(char *s, int **arr)
 {
 	int		idx;
 	int		N;
-	int		nb;
 	char	**s_arr;
 
 	s_arr = ft_split(s, ' ');
@@ -46,13 +45,16 @@ static int	parse_str_arg(char *s, int **arr)
 		N++;
 	*arr = malloc(sizeof(**arr) * N);
 	if (!*arr)
-		return (0);
+		return (-1);
 	idx = 0;
 	while (idx < N)
 	{
-		check_is_valid_integer(s_arr[idx]);
-		nb = ft_atoi(s_arr[idx]);
-		(*arr)[idx] = nb;
+		if (!check_is_valid_integer(s_arr[idx]))
+		{
+			free(s_arr);
+			return (-1);
+		}
+		(*arr)[idx] = ft_atoi(s_arr[idx]);
 		idx++;
 	}
 	free(s_arr);
@@ -75,12 +77,12 @@ int	parse_args(char **args, int **arr)
 		return (parse_str_arg(*args, arr));
 	*arr = malloc(sizeof(**arr) * N);
 	if (!*arr)
-		return (0);
+		return (-1);
 	idx = 0;
 	while (idx < N)
 	{
 		if (!check_is_valid_integer(args[idx]))
-			return (0);
+			return (-1);
 		nb = ft_atoi(args[idx]);
 		(*arr)[idx] = nb;
 		idx++;
