@@ -6,7 +6,7 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 21:27:10 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/27 19:20:14 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/27 19:59:40 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 char	*ft_strnstr(const char	*big, const char *little, size_t len);
+int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strdup(const char *src);
 char	*ft_strndup(char const *str, int n);

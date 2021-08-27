@@ -19,6 +19,7 @@ SRCS		:= \
 			ft_strchr.c \
 			ft_strrchr.c \
 			ft_strnstr.c \
+			ft_strcmp.c \
 			ft_strncmp.c \
 			ft_strdup.c \
 			ft_strndup.c \

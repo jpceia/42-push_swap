@@ -6,11 +6,11 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 20:49:19 by jceia             #+#    #+#             */
-/*   Updated: 2021/08/27 18:45:41 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/27 19:59:56 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	while (*s1 && *s2)
 	{
