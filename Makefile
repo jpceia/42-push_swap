@@ -1,7 +1,7 @@
-INCDIR		= .
-
 LIBFTDIR	= ./libft
-LIBFT		= libft/libft.a
+LIBFT		= $(LIBFTDIR)/libft.a
+
+INCDIR		= .
 
 OBJDIR		= obj
 
@@ -46,11 +46,11 @@ $(OBJDIR)/%.o:	%.c
 $(LIBFT):
 			$(MAKE) -C $(LIBFTDIR)
 
-$(NAME):	$(LIBFT) $(OBJS_PUSH_SWAP)
-			$(CC) $(CFLAGS) $? -o $@
+$(NAME):	$(OBJS_PUSH_SWAP) $(LIBFT)
+			$(CC) $(CFLAGS) $^ -o $@
 
-checker:	$(LIBFT) $(OBJS_CHECKER)
-			$(CC) $(CFLAGS) $? -o $@
+checker:	$(OBJS_CHECKER) $(LIBFT) 
+			$(CC) $(CFLAGS) $^ -o $@
 
 clean:
 			$(MAKE) -C $(LIBFTDIR) clean
