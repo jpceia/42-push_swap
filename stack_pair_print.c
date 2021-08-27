@@ -17,13 +17,13 @@ static void	stack_pair_print_line(char *s1, char *s2)
 	size_t	len;
 
 	len = ft_strlen(s1);
-	ft_putstr_fd(s1, STDOUT_FILENO);
+	ft_putstr(s1);
 	while (6 > len++)
 	{
-		ft_putchar_fd(' ', STDOUT_FILENO);
+		ft_putchar(' ');
 	}
-	ft_putstr_fd(s2, STDOUT_FILENO);
-	ft_putchar_fd('\n', STDOUT_FILENO);
+	ft_putstr(s2);
+	ft_putchar('\n');
 }
 
 static void	stack_pair_print_both(t_stack_pair ss, int N)
@@ -91,6 +91,6 @@ void	stack_pair_print(t_stack_pair ss)
 	k = 0;
 	while (k++ < len_b - len_a)
 		ss.b = ss.b->prev;
-	stack_pair_print_both(ss, ft_intmin(len_a, len_b));
-	ft_putstr_fd("_____  _____\n", STDOUT_FILENO);
+	stack_pair_print_both(ss, ft_imin(len_a, len_b));
+	ft_putendl("_____  _____");
 }

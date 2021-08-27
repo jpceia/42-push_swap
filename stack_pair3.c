@@ -22,7 +22,7 @@ void	operation_ra(t_stack_pair *ss_ref, bool print)
 		return ;
 	}
 	if (print)
-		ft_putstr_fd("ra\n", STDOUT_FILENO);
+		ft_putendl("ra");
 	stack_rotate(&ss_ref->a);
 }
 
@@ -36,14 +36,14 @@ void	operation_rb(t_stack_pair *ss_ref, bool print)
 		return ;
 	}
 	if (print)
-		ft_putstr_fd("rb\n", STDOUT_FILENO);
+		ft_putendl("rb");
 	stack_rotate(&ss_ref->b);
 }
 
 void	operation_rr(t_stack_pair *ss_ref, bool print)
 {
 	if (print)
-		ft_putstr_fd("rr\n", STDOUT_FILENO);
+		ft_putendl("rr");
 	stack_rotate(&ss_ref->a);
 	stack_rotate(&ss_ref->b);
 }

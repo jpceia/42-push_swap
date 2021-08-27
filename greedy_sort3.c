@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   greedy_sort3.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 05:14:38 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/21 15:40:00 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/27 18:59:32 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	insert_top_top(t_stack_pair *ss, t_params *params)
 	int	k;
 	int	m;
 
-	m = ft_intmin(params->p, params->q);
+	m = ft_imin(params->p, params->q);
 	k = 0;
 	while (k++ < m)
 		operation_rr(ss, true);
@@ -36,16 +36,16 @@ static void	insert_bottom_bottom(t_stack_pair *ss, t_params *params)
 	int	k;
 	int	m;
 
-	m = ft_intmin(params->len_b - params->q, params->len_a - params->p);
+	m = ft_imin(params->len_b - params->q, params->len_a - params->p);
 	k = 0;
 	while (k++ < m)
 		operation_rrr(ss, true);
 	k = 0;
-	while (k++ < params->len_b - params->q - m)
-		operation_rrb(ss, true);
-	k = 0;
 	while (k++ < params->len_a - params->p - m)
 		operation_rra(ss, true);
+	k = 0;
+	while (k++ < params->len_b - params->q - m)
+		operation_rrb(ss, true);
 	params->pivot += params->len_b - params->q;
 }
 

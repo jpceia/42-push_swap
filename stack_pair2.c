@@ -30,7 +30,7 @@ void	operation_pa(t_stack_pair *ss_ref, bool print)
 		return ;
 	}
 	if (print)
-		ft_putstr_fd("pa\n", STDOUT_FILENO);
+		ft_putendl("pa");
 	node = ss_ref->b;
 	if (node == NULL)
 		return ;
@@ -57,7 +57,7 @@ void	operation_pb(t_stack_pair *ss_ref, bool print)
 		return ;
 	}
 	if (print)
-		ft_putstr_fd("pb\n", STDOUT_FILENO);
+		ft_putendl("pb");
 	node = ss_ref->a;
 	if (node == NULL)
 		return ;
@@ -82,7 +82,7 @@ void	operation_sa(t_stack_pair *ss_ref, bool print)
 		return ;
 	}
 	if (print)
-		ft_putstr_fd("sa\n", STDOUT_FILENO);
+		ft_putendl("sa");
 	stack_swap(&ss_ref->a);
 }
 
@@ -102,7 +102,7 @@ void	operation_sb(t_stack_pair *ss_ref, bool print)
 		return ;
 	}
 	if (print)
-		ft_putstr_fd("sb\n", STDOUT_FILENO);
+		ft_putendl("sb");
 	stack_swap(&ss_ref->b);
 }
 
@@ -112,7 +112,7 @@ void	operation_sb(t_stack_pair *ss_ref, bool print)
 void	operation_ss(t_stack_pair *ss_ref, bool print)
 {
 	if (print)
-		ft_putstr_fd("ss\n", STDOUT_FILENO);
+		ft_putendl("ss");
 	stack_swap(&ss_ref->a);
 	stack_swap(&ss_ref->b);
 }

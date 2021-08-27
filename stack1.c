@@ -6,7 +6,7 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:22:13 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/12 11:45:38 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/27 19:27:17 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	stack_print(t_stack *stack)
 {
 	while (stack)
 	{
-		ft_putnbr_fd(stack->value, STDOUT_FILENO);
-		ft_putchar_fd('\n', STDOUT_FILENO);
+		ft_putnbr(stack->value);
+		ft_putchar('\n');
 		stack = stack->prev;
 	}
-	ft_putstr_fd("____\n", STDOUT_FILENO);
+	ft_putendl("____");
 }
 
 size_t	stack_len(t_stack *stack)

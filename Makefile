@@ -13,7 +13,6 @@ SRCS		= main.c \
 			  radix_sort.c lis1.c lis2.c
 
 SRCS_CHECKER= checker.c \
-			  get_next_line.c get_next_line_utils.c \
 			  stack1.c stack2.c stack3.c stack4.c \
 			  stack_pair1.c stack_pair2.c \
 			  stack_pair3.c stack_pair4.c \
@@ -37,7 +36,7 @@ all:		$(NAME)
 			${CC} ${CFLAGS} -I${INCDIR} -I$(LIBFTDIR) -c $< -o ${<:.c=.o}
 
 $(LIBFT):
-			$(MAKE) bonus -C $(LIBFTDIR)
+			$(MAKE) -C $(LIBFTDIR)
 
 $(NAME):	$(OBJS) $(LIBFT)
 			$(CC) ${CFLAGS} $(OBJS) $(LIBFT) -o $(NAME)

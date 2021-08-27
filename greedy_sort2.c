@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   greedy_sort2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 04:59:07 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/21 17:25:13 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/08/27 19:00:27 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ static void	find_best_insertion_step(
 	int	steps[4];
 
 	j = get_position(ss.b, ss.a->value, params->pivot);
-	steps[0] = ft_intmax(i, j);
-	steps[1] = ft_intmax(params->len_b - j, params->len_a - i);
+	steps[0] = ft_imax(i, j);
+	steps[1] = ft_imax(params->len_b - j, params->len_a - i);
 	steps[2] = params->len_b - j + i;
 	steps[3] = params->len_a - i + j;
 	k = 0;
