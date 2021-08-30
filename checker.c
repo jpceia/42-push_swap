@@ -6,7 +6,7 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 23:20:00 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/28 00:18:35 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/30 18:57:52 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,6 @@ int	main(int argc, char **argv)
 	N = parse_args(argv + 1, &arr);
 	if (N <= 0 && arr != NULL)
 		free(arr);
-	if (N == 0)
-		return (EXIT_SUCCESS);
 	if (arr == NULL || N < 0 || !arr_all_different(arr, N))
 		push_swap_error();
 	reverse(&arr, N);
