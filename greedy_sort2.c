@@ -6,7 +6,7 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 04:59:07 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/27 19:00:27 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/30 03:55:32 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static void	find_best_insertion_step(
 	int	k;
 	int	steps[4];
 
+	if (ft_imin(i, params->len_a - i) >= params->min_steps)
+		return ;
 	j = get_position(ss.b, ss.a->value, params->pivot);
 	steps[0] = ft_imax(i, j);
 	steps[1] = ft_imax(params->len_b - j, params->len_a - i);
