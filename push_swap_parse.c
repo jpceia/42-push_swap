@@ -6,7 +6,7 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 12:36:31 by jceia             #+#    #+#             */
-/*   Updated: 2021/08/27 21:53:08 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/30 04:46:37 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,12 @@ static int	check_is_valid_integer(char *s)
 	nb = ft_atol(s);
 	if (nb > (long)(INT_MAX) || nb < (long)(INT_MIN))
 		return (0);
+	if (!(*s == '-' || *s == '+' || ft_isdigit(*s)))
+		return (0);
+	s++;
 	while (*s)
 	{
-		if (!(*s == '-' || *s == '+' || ft_isdigit(*s)))
+		if (!ft_isdigit(*s))
 			return (0);
 		s++;
 	}
