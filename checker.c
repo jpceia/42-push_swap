@@ -6,7 +6,7 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 23:20:00 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/30 19:24:14 by jceia            ###   ########.fr       */
+/*   Updated: 2021/08/30 19:26:23 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,10 @@ int	main(int argc, char **argv)
 	N = parse_args(argv + 1, &arr);
 	if (N <= 0 && arr != NULL)
 		free(arr);
-	if (arr == NULL || N < 0 || !arr_all_different(arr, N))
-		push_swap_error();
 	if (N == 0)
 		return (EXIT_SUCCESS);
+	if (arr == NULL || N < 0 || !arr_all_different(arr, N))
+		push_swap_error();
 	reverse(&arr, N);
 	rankify(&arr, N);
 	stack_push_array(&stack_a, arr, N);
