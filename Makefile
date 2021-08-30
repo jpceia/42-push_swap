@@ -32,7 +32,7 @@ MAKE		= make
 CC			= gcc
 RM			= rm -f
 
-CFLAGS		= -Wall -Wextra -Werror -g
+CFLAGS		= -Wall -Wextra -Werror
 
 all:		$(NAME) checker
 
@@ -49,7 +49,7 @@ $(LIBFT):
 $(NAME):	$(OBJS_PUSH_SWAP) $(LIBFT)
 			$(CC) $(CFLAGS) $^ -o $@
 
-checker:	$(OBJS_CHECKER) $(LIBFT) 
+checker:	$(OBJS_CHECKER) $(LIBFT)
 			$(CC) $(CFLAGS) $^ -o $@
 
 clean:
