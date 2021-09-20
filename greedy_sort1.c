@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   greedy_sort1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 12:35:50 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/21 17:42:05 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/09/20 15:45:17 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	try_swap(t_stack_pair *ss, int *seq_size, int **seq)
 	int		swap_b;
 
 	a = stack_copy(ss->a);
-	trial_seq_size = LICS_stack(stack_swap(&a), &trial_seq);
+	trial_seq_size = lics_stack(stack_swap(&a), &trial_seq);
 	stack_clear(a);
 	if (trial_seq_size <= *seq_size)
 	{
@@ -42,16 +42,16 @@ static int	try_swap(t_stack_pair *ss, int *seq_size, int **seq)
 	return (1);
 }
 
-static void	push_all_except_LICS(t_stack_pair *ss)
+static void	push_all_except_lics(t_stack_pair *ss)
 {
 	int	*seq;
-	int	N;
+	int	n;
 	int	seq_size;
 	int	len_a;
 
-	N = stack_len(ss->a);
-	len_a = N;
-	seq_size = LICS_stack(ss->a, &seq);
+	n = stack_len(ss->a);
+	len_a = n;
+	seq_size = lics_stack(ss->a, &seq);
 	try_swap(ss, &seq_size, &seq);
 	while (seq_size < len_a)
 	{
@@ -60,11 +60,11 @@ static void	push_all_except_LICS(t_stack_pair *ss)
 		else
 		{
 			operation_pb(ss, true);
-			if ((N > 20) && (stack_top(ss->b) < N / 2))
+			if ((n > 20) && (stack_top(ss->b) < n / 2))
 				operation_rb(ss, true);
 			len_a--;
 		}
-		if (N <= 20)
+		if (n <= 20)
 			try_swap(ss, &seq_size, &seq);
 	}
 	free(seq);
@@ -112,7 +112,7 @@ void	greedy_sort(t_stack *a)
 
 	stack_pair_init(&ss);
 	ss.a = a;
-	push_all_except_LICS(&ss);
+	push_all_except_lics(&ss);
 	stack_pair_reverse(&ss);
 	greedy_sort_core(&ss);
 	stack_pair_reverse(&ss);

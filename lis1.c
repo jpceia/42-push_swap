@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lis1.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 15:38:19 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/13 08:22:34 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/09/20 15:10:43 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int	get_ceil_index(int *arr, int *index, int r, int key)
 	return (r);
 }
 
-static int	*build_LIS(int *arr, int *prev_indices, int start, int **seq)
+static int	*build_lis(int *arr, int *prev_indices, int start, int **seq)
 {
 	int	i;
 	int	j;
@@ -101,7 +101,7 @@ int	longest_increasing_subsequence(int *arr, int N, int **seq)
 		prev_indices[length++] = -1;
 	length = longest_increasing_subsequence_aux(
 			arr, N, tail_indices, prev_indices);
-	build_LIS(arr, prev_indices, tail_indices[length - 1], seq);
+	build_lis(arr, prev_indices, tail_indices[length - 1], seq);
 	free(prev_indices);
 	free(tail_indices);
 	return (length);

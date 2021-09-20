@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 05:02:28 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/20 23:34:17 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/09/20 15:09:15 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	radix_sort(t_stack *stack);
 void	small_sort(t_stack *stack);
 int		longest_increasing_subsequence(int *arr, int N, int **seq);
 int		longest_increasing_circular_subsequence(int *arr, int N, int **seq);
-int		LICS_stack(t_stack *stack, int **seq);
+int		lics_stack(t_stack *stack, int **seq);
 int		int_arr_contains(int *arr, int N, int value);
 int		*rotate_array(int **arr, int N, int r);
 

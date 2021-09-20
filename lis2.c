@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lis2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 14:00:57 by jceia             #+#    #+#             */
-/*   Updated: 2021/08/14 20:39:10 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/09/20 15:10:37 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,15 @@ int	*rotate_array(int **arr, int N, int r)
 	return (*arr);
 }
 
-int	LICS_stack(t_stack *stack, int **seq)
+int	lics_stack(t_stack *stack, int **seq)
 {
 	int	*arr;
 	int	len;
-	int	N;
+	int	n;
 
 	arr = stack_array(stack);
 	len = stack_len(stack);
-	N = longest_increasing_circular_subsequence(arr, len, seq);
+	n = longest_increasing_circular_subsequence(arr, len, seq);
 	free(arr);
-	return (N);
+	return (n);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 12:35:56 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/20 23:34:17 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/09/20 15:12:00 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,18 @@ size_t	bit_length(unsigned int n)
 void	radix_sort(t_stack *a)
 {
 	size_t			k;
-	size_t			N;
+	size_t			n;
 	size_t			shift;
 	t_stack_pair	ss;
 
 	stack_pair_init(&ss);
 	ss.a = a;
-	N = stack_len(a);
+	n = stack_len(a);
 	shift = 0;
-	while (shift < bit_length(N))
+	while (shift < bit_length(n))
 	{
 		k = 0;
-		while (k++ < N)
+		while (k++ < n)
 		{
 			if ((stack_top(ss.a) >> shift) & 1)
 				operation_ra(&ss, true);

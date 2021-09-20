@@ -6,7 +6,7 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 23:20:00 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/30 19:26:23 by jceia            ###   ########.fr       */
+/*   Updated: 2021/09/20 15:43:58 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,20 +73,20 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	int		*arr;
-	int		N;
+	int		n;
 
 	(void)argc;
 	stack_a = NULL;
-	N = parse_args(argv + 1, &arr);
-	if (N <= 0 && arr != NULL)
+	n = parse_args(argv + 1, &arr);
+	if (n <= 0 && arr != NULL)
 		free(arr);
-	if (N == 0)
+	if (n == 0)
 		return (EXIT_SUCCESS);
-	if (arr == NULL || N < 0 || !arr_all_different(arr, N))
+	if (arr == NULL || n < 0 || !arr_all_different(arr, n))
 		push_swap_error();
-	reverse(&arr, N);
-	rankify(&arr, N);
-	stack_push_array(&stack_a, arr, N);
+	reverse(&arr, n);
+	rankify(&arr, n);
+	stack_push_array(&stack_a, arr, n);
 	if (apply_operations(&stack_a, STDIN_FILENO) < 0)
 		push_swap_error();
 	else if (stack_is_sorted(stack_a))

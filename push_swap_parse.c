@@ -6,7 +6,7 @@
 /*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 12:36:31 by jceia             #+#    #+#             */
-/*   Updated: 2021/08/30 04:46:37 by jceia            ###   ########.fr       */
+/*   Updated: 2021/09/20 15:12:37 by jceia            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,18 @@ static int	check_is_valid_integer(char *s)
 static int	parse_str_arg(char *s, int **arr)
 {
 	int		idx;
-	int		N;
+	int		n;
 	char	**s_arr;
 
 	s_arr = ft_split(s, ' ');
-	N = 0;
-	while (s_arr[N])
-		N++;
-	*arr = malloc(sizeof(**arr) * N);
+	n = 0;
+	while (s_arr[n])
+		n++;
+	*arr = malloc(sizeof(**arr) * n);
 	if (!*arr)
 		return (-1);
 	idx = 0;
-	while (idx < N)
+	while (idx < n)
 	{
 		if (!check_is_valid_integer(s_arr[idx]))
 		{
@@ -61,28 +61,28 @@ static int	parse_str_arg(char *s, int **arr)
 		idx++;
 	}
 	free(s_arr);
-	return (N);
+	return (n);
 }
 
 int	parse_args(char **args, int **arr)
 {
-	int	N;
+	int	n;
 	int	nb;
 	int	idx;
 
-	N = 0;
+	n = 0;
 	*arr = NULL;
-	while (args[N])
-		N++;
-	if (N < 1)
+	while (args[n])
+		n++;
+	if (n < 1)
 		return (0);
-	if (N == 1)
+	if (n == 1)
 		return (parse_str_arg(*args, arr));
-	*arr = malloc(sizeof(**arr) * N);
+	*arr = malloc(sizeof(**arr) * n);
 	if (!*arr)
 		return (-1);
 	idx = 0;
-	while (idx < N)
+	while (idx < n)
 	{
 		if (!check_is_valid_integer(args[idx]))
 			return (-1);
@@ -90,5 +90,5 @@ int	parse_args(char **args, int **arr)
 		(*arr)[idx] = nb;
 		idx++;
 	}
-	return (N);
+	return (n);
 }
