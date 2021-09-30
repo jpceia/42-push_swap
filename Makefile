@@ -36,9 +36,6 @@ CFLAGS		= -Wall -Wextra -Werror
 
 all:		$(NAME) checker
 
-test:
-	echo $(OBJS_PUSH_SWAP)
-
 $(OBJDIR)/%.o:	%.c
 			@mkdir -p $(dir $@)
 			$(CC) $(CFLAGS) -I$(INCDIR) -I$(LIBFTDIR) -c $< -o $@
