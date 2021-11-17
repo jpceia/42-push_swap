@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/08 04:02:46 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/21 00:06:16 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/11/17 21:57:28 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 #include "stack.h"
 #include "libft.h"
 
+/**
+ * @brief	Reverses a given array of integers, by reference.
+ * 
+ * @param	arr_ref	The array to be reversed.
+ * @param	N		The size of the array.
+ * @return	int*	The reversed array.
+ */
 int	*reverse(int **arr_ref, size_t N)
 {
 	int	k;
@@ -30,6 +37,13 @@ int	*reverse(int **arr_ref, size_t N)
 	return (*arr_ref);
 }
 
+/**
+ * @brief	Checks if all the elements of an array of integers are distinct.
+ * 
+ * @param	arr	The array to be checked. 
+ * @param	N	The size of the array. 
+ * @return	int	1 if all elements are distinct, 0 otherwise.
+ */
 int	arr_all_different(int *arr, size_t N)
 {
 	int	i;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_parse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/12 12:36:31 by jceia             #+#    #+#             */
-/*   Updated: 2021/09/20 15:12:37 by jceia            ###   ########.fr       */
+/*   Updated: 2021/11/17 22:47:19 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 #include "libft.h"
 #include <limits.h>
 
+/**
+ * @brief	Checks if a string corresponds to a valid integer.
+ * 
+ * @param	s	the string to be checked.
+ * @return	int	1 if the string is a valid integer, 0 otherwise. 
+ */
 static int	check_is_valid_integer(char *s)
 {
 	long	nb;
@@ -36,6 +42,15 @@ static int	check_is_valid_integer(char *s)
 	return (1);
 }
 
+/**
+ * @brief	Converts a single string to an array of integers.
+ * 			The resulting allocated on the heap and is passed by reference.
+ * 
+ * @param	s	the string to be parsed	
+ * @param	arr	the reference to the array of integers where the result will
+ * 				be stored. 
+ * @return	int	1 if the string was successfully parsed, 0 otherwise.
+ */
 static int	parse_str_arg(char *s, int **arr)
 {
 	int		idx;
@@ -64,6 +79,15 @@ static int	parse_str_arg(char *s, int **arr)
 	return (n);
 }
 
+/**
+ * @brief	Parses the arguments passed to the program and stores the result
+ * 			in an array of integers, being passed by reference.
+ * 			
+ * @param	args	the arguments passed to the program. 
+ * @param	arr		the reference to the array of integers where the result
+ * 					will be stored. 
+ * @return	int		1 if the arguments were successfully parsed, 0 otherwise.
+ */
 int	parse_args(char **args, int **arr)
 {
 	int	n;
