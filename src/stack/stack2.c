@@ -3,20 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   stack2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:23:35 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/21 17:20:15 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/11/17 22:46:33 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 #include <stdlib.h>
 
-/*
- * Swaps the first two elements at the top of the stack
- * If the stack has no or only one elements (stack == NULL
- * or stack->prev == NULL) then do nothing
+/**
+ * @brief	Swaps the first two elements at the top of the stack.
+ * 			If the stack has no or only one elements then do nothing
+ * 			(when stack == NULL or stack->prev == NULL).
+ * 
+ * @param	stack_ref 	reference to the stack to be swapped.
+ * @return	t_stack*	the new top of the stack.
+ * 						NULL if the stack is empty.
  */
 t_stack	*stack_swap(t_stack **stack_ref)
 {
@@ -33,9 +37,13 @@ t_stack	*stack_swap(t_stack **stack_ref)
 	return (*stack_ref);
 }
 
-/*
- * Shift up all elements of stack the by 1.
- * The first element becomes the last one.
+/**
+ * @brief	Shifts up all elements of the stack by 1.
+ * 			The first element becomes the last one.
+ * 
+ * @param	stack_ref	reference to the stack to be rotated.
+ * @return	t_stack*	the new top of the stack.
+ * 						NULL if the stack is empty.
  */
 t_stack	*stack_rotate(t_stack **stack_ref)
 {
@@ -56,6 +64,14 @@ t_stack	*stack_rotate(t_stack **stack_ref)
 	return (*stack_ref);
 }
 
+/**
+ * @brief	Shifts down all elements of the stack by 1.
+ * 			The last element becomes the first one.
+ * 
+ * @param	stack_ref	reference to the stack to be rotated.
+ * @return	t_stack*	the new top of the stack.
+ * 						NULL if the stack is empty.
+ */
 t_stack	*stack_reverse_rotate(t_stack **stack_ref)
 {
 	t_stack	*last;
@@ -77,6 +93,14 @@ t_stack	*stack_reverse_rotate(t_stack **stack_ref)
 	return (*stack_ref);
 }
 
+/**
+ * @brief	Adds a new element at the top of the stack.
+ * 
+ * @param	stack_ref	reference to the stack to be modified.
+ * @param	value		value of the new element.
+ * @return	t_stack*	the new top of the stack.
+ * 						NULL if the creation of the new element failed.
+ */
 t_stack	*stack_push(t_stack **stack_ref, int value)
 {
 	t_stack	*node;
@@ -90,6 +114,12 @@ t_stack	*stack_push(t_stack **stack_ref, int value)
 	return (*stack_ref);
 }
 
+/**
+ * @brief	Removes the first element of the stack.
+ * 
+ * @param	stack_ref	reference to the stack to be modified.
+ * @return	int			value of the removed element.
+ */
 int	stack_pop(t_stack **stack_ref)
 {
 	t_stack	*node;
