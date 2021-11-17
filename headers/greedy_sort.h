@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   greedy_sort.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpceia <jpceia@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/13 05:15:24 by jpceia            #+#    #+#             */
-/*   Updated: 2021/08/21 17:25:25 by jpceia           ###   ########.fr       */
+/*   Updated: 2021/11/17 21:55:13 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_params {
 	int	new_val;
 	int	p;
 	int	q;
-}				t_params;
+}	t_params;
 
 void	greedy_sort(t_stack *stack);
 void	apply_greedy_insertion(t_stack_pair *ss, t_params *params);
