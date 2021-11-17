@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lis1.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 15:38:19 by jpceia            #+#    #+#             */
-/*   Updated: 2021/09/20 15:10:43 by jceia            ###   ########.fr       */
+/*   Updated: 2021/11/17 22:50:08 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,15 @@ static int	longest_increasing_subsequence_aux(
 	return (length);
 }
 
+/**
+ * @brief Calculates the longest increasing subsequence of the given array.
+ * 
+ * @param	arr	the array to calculate the longest increasing subsequence of.
+ * @param	N	the size of the array.
+ * @param	seq	the resulting longest increasing subsequence
+ * 				(passed by reference).
+ * @return int	the length of the longest increasing subsequence.
+ */
 int	longest_increasing_subsequence(int *arr, int N, int **seq)
 {
 	int	length;
@@ -107,6 +116,17 @@ int	longest_increasing_subsequence(int *arr, int N, int **seq)
 	return (length);
 }
 
+/**
+ * @brief	Calculates the longest increasing circular subsequence of the given
+ * 			array.
+ *
+ * @param	arr	the array to calculate the longest increasing circular
+ * 				subsequence of.
+ * @param	N	the size of the array.
+ * @param	seq	the resulting longest increasing circular subsequence
+ * 				(passed by reference).
+ * @return	int	the length of the longest increasing circular subsequence.
+ */
 int	longest_increasing_circular_subsequence(int *arr, int N, int **seq)
 {
 	int	*tmp;

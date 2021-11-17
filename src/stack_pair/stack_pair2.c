@@ -12,11 +12,13 @@
 
 #include "stack_pair.h"
 
-/*
- * push a
- *
- * take the first element at the top of b and put it at the top of a. Do
- * nothing if b is empty.
+/**
+ * @brief	push a
+ * 			Takes the first element at the top of b and put it at the top of a.
+ * 			Do nothing if b is empty.
+ * 
+ * @param ss_ref	reference to the stack pair.
+ * @param print		if true, print the operation..
  */
 void	operation_pa(t_stack_pair *ss_ref, bool print)
 {
@@ -39,11 +41,13 @@ void	operation_pa(t_stack_pair *ss_ref, bool print)
 	ss_ref->a = node;
 }
 
-/*
- * push b
- *
- * take the first element at the top of a and put it at the top of b. Do
- * nothing if a is empty.
+/**
+ * @brief	push b
+ * 			Tales the first element at the top of a and put it at the top of b.
+ * 			Do nothing if a is empty.
+ * 			
+ * @param	ss_ref	reference to the stack pair.
+ * @param	print	if true, print the operation.
  */
 void	operation_pb(t_stack_pair *ss_ref, bool print)
 {
@@ -66,11 +70,13 @@ void	operation_pb(t_stack_pair *ss_ref, bool print)
 	ss_ref->b = node;
 }
 
-/*
- * swap a
+/**
+ * @brief	swap a
+ * 			Swaps the first 2 elements at the top of stack a. Do nothing if
+ * 			there is only one or no elements.
  * 
- * swap the first 2 elements at the top of stack a. Do nothing if there
- * is only one or no elements).
+ * @param	ss_ref	reference to the stack pair.
+ * @param	print	if true, print the operation.
  */
 void	operation_sa(t_stack_pair *ss_ref, bool print)
 {
@@ -86,11 +92,13 @@ void	operation_sa(t_stack_pair *ss_ref, bool print)
 	stack_swap(&ss_ref->a);
 }
 
-/*
- * swap b
+/**
+ * @brief	swap b
+ * 			Swaps the first 2 elements at the top of stack b. Do nothing if
+ * 			there is only one or no elements.
  * 
- * swap the first 2 elements at the top of stack b. Do nothing if there
- * is only one or no elements).
+ * @param	ss_ref	reference to the stack pair.
+ * @param	print	if true, print the operation.
  */
 void	operation_sb(t_stack_pair *ss_ref, bool print)
 {
@@ -106,8 +114,12 @@ void	operation_sb(t_stack_pair *ss_ref, bool print)
 	stack_swap(&ss_ref->b);
 }
 
-/*
- * swap a and b
+/**
+ * @brief	swap a and b
+ * 			Applies the operations sa and sb.
+ * 
+ * @param	ss_ref	reference to the stack pair.
+ * @param	print	if true, print the operation.
  */
 void	operation_ss(t_stack_pair *ss_ref, bool print)
 {

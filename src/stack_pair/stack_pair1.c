@@ -12,6 +12,12 @@
 
 #include "stack_pair.h"
 
+/**
+ * @brief	Initializes a stack pair.
+ * 
+ * @param	ss_ref			reference to the stack pair.
+ * @return	t_stack_pair*	pointer to the initialized stack pair.
+ */
 t_stack_pair	*stack_pair_init(t_stack_pair *ss_ref)
 {
 	ss_ref->a = NULL;
@@ -20,12 +26,24 @@ t_stack_pair	*stack_pair_init(t_stack_pair *ss_ref)
 	return (ss_ref);
 }
 
+/**
+ * @brief	Clears a stack pair.
+ * 
+ * @param	ss_ref		reference to the stack pair.
+ */
 void	stack_pair_clear(t_stack_pair *ss_ref)
 {
 	stack_clear(ss_ref->a);
 	stack_clear(ss_ref->b);
 }
 
+/**
+ * @brief   Reverses a stack pair (the left stack becomes the right stack and
+ * 			vice versa).
+ * 
+ * @param	ss_ref			reference to the stack pair.
+ * @return	t_stack_pair*	pointer to the reversed stack pair.
+ */
 t_stack_pair	*stack_pair_reverse(t_stack_pair *ss_ref)
 {
 	t_stack	*holder;

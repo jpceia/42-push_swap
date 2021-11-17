@@ -12,6 +12,14 @@
 
 #include "stack_pair.h"
 
+/**
+ * @brief	reverse rotate a
+ * 			Shifts down all the elements of the stack a by one position.
+ * 			The last element becomes the first one.
+ * 
+ * @param 	ss_ref	reference to the stack pair.
+ * @param 	print	if true, print the operation.
+ */
 void	operation_rra(t_stack_pair *ss_ref, bool print)
 {
 	if (ss_ref->reversed)
@@ -26,6 +34,14 @@ void	operation_rra(t_stack_pair *ss_ref, bool print)
 	stack_reverse_rotate(&ss_ref->a);
 }
 
+/**
+ * @brief	reverse rotate b
+ * 			Shift down all the elements of the stack b by one position.
+ * 			The last element becomes the first one.
+ * 
+ * @param 	ss_ref	reference to the stack pair.
+ * @param 	print	if true, print the operation.
+ */
 void	operation_rrb(t_stack_pair *ss_ref, bool print)
 {
 	if (ss_ref->reversed)
@@ -40,6 +56,13 @@ void	operation_rrb(t_stack_pair *ss_ref, bool print)
 	stack_reverse_rotate(&ss_ref->b);
 }
 
+/**
+ * @brief 	reverse rotate a and b
+ * 			Apply the operations rra and rrb.
+ * 
+ * @param	ss_ref	reference to the stack pair.
+ * @param	print	if true, print the operation. 
+ */
 void	operation_rrr(t_stack_pair *ss_ref, bool print)
 {
 	if (print)

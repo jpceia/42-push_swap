@@ -69,6 +69,11 @@ static void	stack_pair_print_right(t_stack *stack, int N)
 	}
 }
 
+/**
+ * @brief	Prints a stack pair to the standard output.
+ * 
+ * @param	ss	the stack pair to print 
+ */
 void	stack_pair_print(t_stack_pair ss)
 {
 	int	k;

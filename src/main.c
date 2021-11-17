@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/07 23:16:55 by jpceia            #+#    #+#             */
-/*   Updated: 2021/09/20 15:45:05 by jceia            ###   ########.fr       */
+/*   Updated: 2021/11/17 22:59:55 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/**
+ * @brief Main function for push_swap.
+ * 
+ * @param argc	number of arguments.
+ * @param argv	array of arguments.
+ * @return int	resulting status.
+ */
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;

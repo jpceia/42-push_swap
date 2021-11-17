@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jceia <jceia@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/21 23:20:00 by jpceia            #+#    #+#             */
-/*   Updated: 2021/09/20 15:43:58 by jceia            ###   ########.fr       */
+/*   Updated: 2021/11/17 22:59:06 by jpceia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 #include "push_swap.h"
 #include "libft.h"
 
+/**
+ * @brief Applies a given operation to the stack pair.
+ * 
+ * @param ss	the stack pair to be operated.
+ * @param line	a string containing the operation to be applied.
+ * @return int	0 if the operation was applied successfully, -1 otherwise.
+ */
 int	apply_operations_step(t_stack_pair *ss, char *line)
 {
 	if (ft_strcmp(line, "pa") == 0)
@@ -43,6 +50,14 @@ int	apply_operations_step(t_stack_pair *ss, char *line)
 	return (0);
 }
 
+/**
+ * @brief	Applies a sequence of operations to the stack pair.
+ * 			The stream operations are read from the file descriptor.
+ * 
+ * @param	a	a reference to the stack to be operated.
+ * @param	fd	the file descriptor to read the operations from.
+ * @return int	0 if the operations were applied successfully, -1 otherwise.
+ */
 int	apply_operations(t_stack **a, int fd)
 {
 	t_stack_pair	ss;
@@ -69,6 +84,13 @@ int	apply_operations(t_stack **a, int fd)
 	return (0);
 }
 
+/**
+ * @brief	Main function for the checker.
+ * 
+ * @param argc	number of arguments.
+ * @param argv	array of arguments.
+ * @return int	resulting status.
+ */
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
