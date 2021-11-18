@@ -6,69 +6,86 @@
 #    By: jpceia <joao.p.ceia@gmail.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/17 23:00:40 by jpceia            #+#    #+#              #
-#    Updated: 2021/11/17 23:32:23 by jpceia           ###   ########.fr        #
+#    Updated: 2021/11/17 23:58:50 by jpceia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-LIBFTDIR	= ./libft
-LIBFT		= $(LIBFTDIR)/libft.a
-
-INCDIR		= headers
-
-OBJDIR		= obj
-
-SRCS_PUSH_SWAP = \
-			main.c \
-			stack1.c stack2.c stack3.c stack4.c \
-			stack_pair1.c stack_pair2.c \
-			stack_pair3.c stack_pair4.c \
-			stack_pair_print.c \
-			push_swap1.c push_swap2.c push_swap_parse.c \
-			greedy_sort1.c greedy_sort2.c greedy_sort3.c \
-			radix_sort.c lis1.c lis2.c
-
-SRCS_CHECKER = \
-			checker.c \
-			stack1.c stack2.c stack3.c stack4.c \
-			stack_pair1.c stack_pair2.c \
-			stack_pair3.c stack_pair4.c \
-			stack_pair_print.c \
-			push_swap1.c push_swap2.c push_swap_parse.c
-
-OBJS_PUSH_SWAP = $(SRCS_PUSH_SWAP:%.c=$(OBJDIR)/%.o)
-OBJS_CHECKER = $(SRCS_CHECKER:%.c=$(OBJDIR)/%.o)
-
 NAME		= push_swap
 
-MAKE		= make
+FT_DIR      = ./libft
+
+INC_DIR     = headers
+
+SRC_DIR		= src
+OBJ_DIR		= obj
+
+SRCS_PUSH_SWAP = \
+			$(shell find $(addprefix $(SRC_DIR)/, \
+				stack stack_pair utils lis sorters) -name '*.c' -type f) \
+			$(SRC_DIR)/parser.c \
+			$(SRC_DIR)/main.c
+
+SRCS_CHECKER = \
+			$(shell find $(addprefix $(SRC_DIR)/, \
+				stack stack_pair utils) -name '*.c' -type f) \
+			$(SRC_DIR)/parser.c \
+			$(SRC_DIR)/checker.c
+
+OBJS_PUSH_SWAP	= $(SRCS_PUSH_SWAP:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+OBJS_CHECKER	= $(SRCS_CHECKER:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+
 CC			= gcc
 RM			= rm -f
+OS          = $(shell uname)
 
-CFLAGS		= -Wall -Wextra -Werror
+FLAGS_WARN  = -Wall -Wextra -Werror
+FLAGS_INC   = -I$(INC_DIR) -I$(FT_DIR)
+FLAGS_DEBUG = -g -DDEBUG
+FLAGS_OPT   = -O3
+FLAGS_FT    = -L$(FT_DIR) -lft
+
+CFLAGS      = $(FLAGS_WARN) $(FLAGS_OPT) $(FLAGS_INC) 
+LDFLAGS     = $(FLAGS_WARN) $(FLAGS_OPT) $(FLAGS_FT)
 
 all:		$(NAME) checker
 
-$(OBJDIR)/%.o:	%.c
+test:
+			echo $(SRCS_SHARED)
+
+# Libft
+libft:
+			$(MAKE) -C $(FT_DIR)
+
+# Compilation
+$(OBJ_DIR)/%.o:  $(SRC_DIR)/%.c
 			@mkdir -p $(dir $@)
-			$(CC) $(CFLAGS) -I$(INCDIR) -I$(LIBFTDIR) -c $< -o $@
+			$(CC) -c $< -o $@ $(CFLAGS)
 
-$(LIBFT):
-			$(MAKE) -C $(LIBFTDIR)
+# Linking - push_swap
+$(NAME):	$(OBJS_PUSH_SWAP)
+			$(MAKE) -C $(FT_DIR)
+			$(CC) $^ -o $@ $(LDFLAGS)
 
-$(NAME):	$(OBJS_PUSH_SWAP) $(LIBFT)
-			$(CC) $(CFLAGS) $^ -o $@
+# Linking - Checker
+checker:	$(OBJS_CHECKER)
+			$(MAKE) -C $(FT_DIR)
+			$(CC) $^ -o $@ $(LDFLAGS)
 
-checker:	$(OBJS_CHECKER) $(LIBFT)
-			$(CC) $(CFLAGS) $^ -o $@
-
+# Cleaning
 clean:
-			$(MAKE) -C $(LIBFTDIR) clean
-			$(RM) -r $(OBJDIR)
+			$(MAKE) -C $(FT_DIR) clean
+			$(RM) -rf $(OBJ_DIR)
 
-fclean:		clean
-			$(MAKE) -C $(LIBFTDIR) fclean
+fclean:     clean
+			$(MAKE) -C $(FT_DIR) fclean
 			$(RM) $(NAME) checker
 
-re:			fclean all
+# Debugging build
+debug:      CFLAGS += $(FLAGS_DEBUG)
+debug:      LDFLAGS += $(FLAGS_DEBUG)
+debug:      re
 
-.PHONY:		all clean fclean re
+# Rebuid
+re:         fclean all
+
+.PHONY:     all clean fclean re debug
